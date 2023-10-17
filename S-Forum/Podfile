@@ -6,7 +6,11 @@ target 'S-Forum' do
   use_frameworks!
 
   # Pods for S-Forum
-
+  pod 'SDWebImage', '~> 5.0'
+  pod 'Alamofire'
+  pod 'IQKeyboardManagerSwift'
+  pod 'SwiftLint'
+  
   target 'S-ForumTests' do
     inherit! :search_paths
     # Pods for testing
