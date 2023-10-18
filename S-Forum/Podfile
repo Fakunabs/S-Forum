@@ -10,14 +10,4 @@ target 'S-Forum' do
   pod 'Alamofire'
   pod 'IQKeyboardManagerSwift'
   pod 'SwiftLint'
-  
-  target 'S-ForumTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'S-ForumUITests' do
-    # Pods for testing
-  end
-
 end
