@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "home-search-icon.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

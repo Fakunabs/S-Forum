@@ -23,6 +23,7 @@
 		1C2FC86A2ADFD68D00BAD9CB /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C2FC8682ADFD68D00BAD9CB /* ScheduleViewController.xib */; };
 		1C2FC86D2ADFD69E00BAD9CB /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2FC86B2ADFD69E00BAD9CB /* GroupViewController.swift */; };
 		1C2FC86E2ADFD69E00BAD9CB /* GroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C2FC86C2ADFD69E00BAD9CB /* GroupViewController.xib */; };
+		1C2FC8702ADFE05900BAD9CB /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2FC86F2ADFE05900BAD9CB /* AppColors.swift */; };
 		F9936A3F9EEE087456394654 /* Pods_S_Forum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8585A1FE38F744E6986A40B4 /* Pods_S_Forum.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		1C2FC8682ADFD68D00BAD9CB /* ScheduleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleViewController.xib; sourceTree = "<group>"; };
 		1C2FC86B2ADFD69E00BAD9CB /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		1C2FC86C2ADFD69E00BAD9CB /* GroupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupViewController.xib; sourceTree = "<group>"; };
+		1C2FC86F2ADFE05900BAD9CB /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		5F486F9F9C243B7D2E3A899A /* Pods-S-Forum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S-Forum.release.xcconfig"; path = "Target Support Files/Pods-S-Forum/Pods-S-Forum.release.xcconfig"; sourceTree = "<group>"; };
 		8585A1FE38F744E6986A40B4 /* Pods_S_Forum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_S_Forum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D476F03FBF7BD7CE8C8DD02E /* Pods-S-Forum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S-Forum.debug.xcconfig"; path = "Target Support Files/Pods-S-Forum/Pods-S-Forum.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				1C2FC8612ADFD36E00BAD9CB /* AppImages.swift */,
+				1C2FC86F2ADFE05900BAD9CB /* AppColors.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				1C2334A52AD70BA4009027F6 /* ViewController.swift in Sources */,
 				1C2FC8622ADFD36E00BAD9CB /* AppImages.swift in Sources */,
 				1C2FC8692ADFD68D00BAD9CB /* ScheduleViewController.swift in Sources */,
+				1C2FC8702ADFE05900BAD9CB /* AppColors.swift in Sources */,
 				1C2FC86D2ADFD69E00BAD9CB /* GroupViewController.swift in Sources */,
 				1C2FC8652ADFD67600BAD9CB /* HomeViewController.swift in Sources */,
 				1C2FC8592ADFCBB800BAD9CB /* TabController.swift in Sources */,
