@@ -15,4 +15,7 @@ struct AppImages {
     static let scheduleTabbarIcon = UIImage(named: "schedule-tabbar-icon")
     static let podcastTabbarIcon = UIImage(named: "podcast-tabbar-icon")
     static let interviewTabbarIcon = UIImage(named: "interview-tabbar-icon")
+    static let homeFollowingIcon = UIImage(named: "home-following-icon")
+    static let homeNewIcon = UIImage(named: "home-new-icon")
+    static let homePopularIcon = UIImage(named: "home-popular-icon")
 }
