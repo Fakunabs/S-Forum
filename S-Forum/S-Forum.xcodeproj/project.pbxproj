@@ -40,6 +40,8 @@
 		1C5B4BC62AE17DE700BD93E4 /* SourceSans3-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BB62AE17DE700BD93E4 /* SourceSans3-Regular.ttf */; };
 		1C5B4BC72AE17DE700BD93E4 /* SourceSans3-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BB72AE17DE700BD93E4 /* SourceSans3-MediumItalic.ttf */; };
 		1C5B4BC82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BB82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf */; };
+		1CDADFC12AE2656200765C7C /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDADFBF2AE2656200765C7C /* NewsFeedTableViewCell.swift */; };
+		1CDADFC22AE2656200765C7C /* NewsFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CDADFC02AE2656200765C7C /* NewsFeedTableViewCell.xib */; };
 		F9936A3F9EEE087456394654 /* Pods_S_Forum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8585A1FE38F744E6986A40B4 /* Pods_S_Forum.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +100,8 @@
 		1C5B4BB62AE17DE700BD93E4 /* SourceSans3-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Regular.ttf"; sourceTree = "<group>"; };
 		1C5B4BB72AE17DE700BD93E4 /* SourceSans3-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-MediumItalic.ttf"; sourceTree = "<group>"; };
 		1C5B4BB82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-ExtraBold.ttf"; sourceTree = "<group>"; };
+		1CDADFBF2AE2656200765C7C /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
+		1CDADFC02AE2656200765C7C /* NewsFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsFeedTableViewCell.xib; sourceTree = "<group>"; };
 		5F486F9F9C243B7D2E3A899A /* Pods-S-Forum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S-Forum.release.xcconfig"; path = "Target Support Files/Pods-S-Forum/Pods-S-Forum.release.xcconfig"; sourceTree = "<group>"; };
 		8585A1FE38F744E6986A40B4 /* Pods_S_Forum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_S_Forum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D476F03FBF7BD7CE8C8DD02E /* Pods-S-Forum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S-Forum.debug.xcconfig"; path = "Target Support Files/Pods-S-Forum/Pods-S-Forum.debug.xcconfig"; sourceTree = "<group>"; };
@@ -239,6 +243,8 @@
 		1C2FC8542ADFCAFE00BAD9CB /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1CB54A0C2AE2625E0014B97B /* Seemore */,
+				1CB54A082AE250C30014B97B /* Newsfeed */,
 				1C2FC8632ADFD67600BAD9CB /* HomeViewController.swift */,
 				1C2FC8642ADFD67600BAD9CB /* HomeViewController.xib */,
 			);
@@ -292,6 +298,30 @@
 				1C5B4BAD2AE17DE500BD93E4 /* SourceSans3-SemiBoldItalic.ttf */,
 			);
 			path = font;
+			sourceTree = "<group>";
+		};
+		1CB54A082AE250C30014B97B /* Newsfeed */ = {
+			isa = PBXGroup;
+			children = (
+				1CB54A0B2AE2513E0014B97B /* cells */,
+			);
+			path = Newsfeed;
+			sourceTree = "<group>";
+		};
+		1CB54A0B2AE2513E0014B97B /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				1CDADFBF2AE2656200765C7C /* NewsFeedTableViewCell.swift */,
+				1CDADFC02AE2656200765C7C /* NewsFeedTableViewCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		1CB54A0C2AE2625E0014B97B /* Seemore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Seemore;
 			sourceTree = "<group>";
 		};
 		42BF53F47158F085E23C3962 /* Frameworks */ = {
@@ -431,6 +461,7 @@
 				1C5B4BBE2AE17DE700BD93E4 /* SourceSans3-BlackItalic.ttf in Resources */,
 				1C2334AA2AD70BA5009027F6 /* Assets.xcassets in Resources */,
 				1C5B4BB92AE17DE700BD93E4 /* SourceSans3-Bold.ttf in Resources */,
+				1CDADFC22AE2656200765C7C /* NewsFeedTableViewCell.xib in Resources */,
 				1C5B4BC82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf in Resources */,
 				1C5B4BC52AE17DE700BD93E4 /* SourceSans3-SemiBold.ttf in Resources */,
 				1C5B4BBA2AE17DE700BD93E4 /* SourceSans3-ExtraBoldItalic.ttf in Resources */,
@@ -507,6 +538,7 @@
 			files = (
 				1C2FC85C2ADFCE4400BAD9CB /* NSObject+Extension.swift in Sources */,
 				1C2334A52AD70BA4009027F6 /* ViewController.swift in Sources */,
+				1CDADFC12AE2656200765C7C /* NewsFeedTableViewCell.swift in Sources */,
 				1C2FC8622ADFD36E00BAD9CB /* AppImages.swift in Sources */,
 				1C2FC8692ADFD68D00BAD9CB /* ScheduleViewController.swift in Sources */,
 				1C2FC8702ADFE05900BAD9CB /* AppColors.swift in Sources */,

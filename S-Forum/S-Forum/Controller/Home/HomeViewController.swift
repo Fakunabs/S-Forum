@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum HomeSectionType: CaseIterable {
+    case newfeed
+}
+
 class HomeViewController: UIViewController {
     
     @IBOutlet private weak var segmentControlView: UIView!
@@ -21,6 +25,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         configViewConerRadius()
         setUpTextField()
+        reloadHomeTableView()
+        configTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,11 +35,17 @@ class HomeViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.navigationController?.navigationBar.isHidden = true
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        
     }
 }
 
-
+extension HomeViewController {
+    private func configTableView() {
+        homeTableView.separatorStyle = .none
+        homeTableView.dataSource = self
+        homeTableView.delegate = self
+        homeTableView.register(UINib(nibName: NewsFeedTableViewCell.className, bundle: nil), forCellReuseIdentifier: NewsFeedTableViewCell.className)
+    }
+}
 
 extension HomeViewController {
     private func configViewConerRadius() {
@@ -53,5 +65,51 @@ extension HomeViewController {
         statusTextField.rightView = rightView
         statusTextField.leftViewMode = .always
         statusTextField.rightViewMode = .always
+    }
+    
+    private func reloadHomeTableView() {
+        let refreshControl = UIRefreshControl()
+            refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
+            homeTableView.refreshControl = refreshControl
+    }
+}
+
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch HomeSectionType.allCases[section] {
+        case .newfeed:
+            return 4
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch HomeSectionType.allCases[indexPath.section] {
+        case .newfeed:
+            guard let newsfeedCell = homeTableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.className, for: indexPath) as? NewsFeedTableViewCell else {return UITableViewCell()}
+            return newsfeedCell
+        }
+    }
+    
+    
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch HomeSectionType.allCases[indexPath.section] {
+        case .newfeed:
+            print("a")
+        }
+    }
+}
+
+
+extension HomeViewController {
+    @objc private func refreshTableView() {
+        DispatchQueue.global().async {
+            DispatchQueue.main.async {
+                self.homeTableView.reloadData()
+                self.homeTableView.refreshControl?.endRefreshing()
+            }
+        }
     }
 }
