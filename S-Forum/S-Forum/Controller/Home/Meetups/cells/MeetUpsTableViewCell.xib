@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSans3-Bold.ttf">
+            <string>SourceSans3-Bold</string>
+        </array>
+        <array key="SourceSans3-SemiBold.ttf">
+            <string>SourceSans3-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MeetUpsTableViewCell" rowHeight="85" id="KGk-i7-Jjw" customClass="MeetUpsTableViewCell" customModule="S_Forum" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="325" height="85"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="325" height="85"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zr-l1-X8i">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FEB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppz-RM-dXx">
+                                <rect key="frame" x="10" y="6" width="30" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="QIK-Wy-K0J"/>
+                                    <constraint firstAttribute="height" constant="26" id="TB7-H7-M3b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SourceSans3-SemiBold" family="Source Sans 3" pointSize="18"/>
+                                <color key="textColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqh-3K-j0w">
+                                <rect key="frame" x="18" y="31" width="14.333333333333336" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Ynv-5L-IsU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SourceSans3-Bold" family="Source Sans 3" pointSize="27"/>
+                                <color key="textColor" red="0.36470588235294116" green="0.58431372549019611" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.17254901960784313" green="0.20784313725490194" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gqh-3K-j0w" firstAttribute="top" secondItem="7Zr-l1-X8i" secondAttribute="top" constant="31" id="IlV-Qy-nhQ"/>
+                            <constraint firstAttribute="height" constant="70" id="UMv-3Y-3h0"/>
+                            <constraint firstItem="ppz-RM-dXx" firstAttribute="centerX" secondItem="7Zr-l1-X8i" secondAttribute="centerX" id="Udq-Z4-L1w"/>
+                            <constraint firstItem="ppz-RM-dXx" firstAttribute="top" secondItem="7Zr-l1-X8i" secondAttribute="top" constant="6" id="VDj-8B-Osn"/>
+                            <constraint firstAttribute="width" constant="50" id="YwJ-c8-LIk"/>
+                            <constraint firstItem="gqh-3K-j0w" firstAttribute="centerX" secondItem="ppz-RM-dXx" secondAttribute="centerX" id="ZQm-WF-geg"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UIHUT - Crunchbase Company Profile..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="gUs-QJ-A3g">
+                        <rect key="frame" x="60" y="5" width="262" height="23"/>
+                        <fontDescription key="fontDescription" name="SourceSans3-SemiBold" family="Source Sans 3" pointSize="16"/>
+                        <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-meetup-image" translatesAutoresizingMaskIntoConstraints="NO" id="lAo-VD-KHF">
+                        <rect key="frame" x="60" y="28" width="17" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="17" id="Fsk-Jm-7od"/>
+                            <constraint firstAttribute="height" constant="17" id="cZR-aB-w24"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UIHUT • Sylhet, Bangladesh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNI-hM-Uqb">
+                        <rect key="frame" x="85" y="27.333333333333329" width="224" height="18.666666666666671"/>
+                        <fontDescription key="fontDescription" name="SourceSans3-SemiBold" family="Source Sans 3" pointSize="13"/>
+                        <color key="textColor" red="0.59215686274509804" green="0.59607843137254901" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="yNI-hM-Uqb" firstAttribute="leading" secondItem="lAo-VD-KHF" secondAttribute="trailing" constant="8" symbolic="YES" id="CgB-D3-Ain"/>
+                    <constraint firstItem="gUs-QJ-A3g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Hh0-hA-ivg"/>
+                    <constraint firstItem="lAo-VD-KHF" firstAttribute="top" secondItem="gUs-QJ-A3g" secondAttribute="bottom" id="Kec-I9-qdq"/>
+                    <constraint firstItem="7Zr-l1-X8i" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="TJl-qc-zq0"/>
+                    <constraint firstAttribute="trailing" secondItem="yNI-hM-Uqb" secondAttribute="trailing" constant="16" id="Tyh-43-qKE"/>
+                    <constraint firstAttribute="bottom" secondItem="7Zr-l1-X8i" secondAttribute="bottom" constant="15" id="UK9-3e-6Ul"/>
+                    <constraint firstItem="lAo-VD-KHF" firstAttribute="leading" secondItem="7Zr-l1-X8i" secondAttribute="trailing" constant="10" id="ZPX-wS-816"/>
+                    <constraint firstItem="gUs-QJ-A3g" firstAttribute="leading" secondItem="7Zr-l1-X8i" secondAttribute="trailing" constant="10" id="bSy-Xm-aYj"/>
+                    <constraint firstAttribute="trailing" secondItem="gUs-QJ-A3g" secondAttribute="trailing" constant="3" id="rif-49-0T0"/>
+                    <constraint firstItem="7Zr-l1-X8i" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="zNf-Ba-u24"/>
+                    <constraint firstItem="yNI-hM-Uqb" firstAttribute="centerY" secondItem="lAo-VD-KHF" secondAttribute="centerY" id="zsB-qq-Ekv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="scheduleView" destination="7Zr-l1-X8i" id="duF-dX-pgr"/>
+            </connections>
+            <point key="canvasLocation" x="31.297709923664122" y="38.380281690140848"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="home-meetup-image" width="16" height="16"/>
+    </resources>
+</document>

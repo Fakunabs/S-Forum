@@ -40,6 +40,8 @@
 		1C5B4BC62AE17DE700BD93E4 /* SourceSans3-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BB62AE17DE700BD93E4 /* SourceSans3-Regular.ttf */; };
 		1C5B4BC72AE17DE700BD93E4 /* SourceSans3-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BB72AE17DE700BD93E4 /* SourceSans3-MediumItalic.ttf */; };
 		1C5B4BC82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BB82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf */; };
+		1C93D6B02AE3A840006A7496 /* MeetUpsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C93D6AE2AE3A840006A7496 /* MeetUpsTableViewCell.swift */; };
+		1C93D6B12AE3A840006A7496 /* MeetUpsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C93D6AF2AE3A840006A7496 /* MeetUpsTableViewCell.xib */; };
 		1CDADFC12AE2656200765C7C /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDADFBF2AE2656200765C7C /* NewsFeedTableViewCell.swift */; };
 		1CDADFC22AE2656200765C7C /* NewsFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CDADFC02AE2656200765C7C /* NewsFeedTableViewCell.xib */; };
 		F9936A3F9EEE087456394654 /* Pods_S_Forum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8585A1FE38F744E6986A40B4 /* Pods_S_Forum.framework */; };
@@ -100,6 +102,8 @@
 		1C5B4BB62AE17DE700BD93E4 /* SourceSans3-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Regular.ttf"; sourceTree = "<group>"; };
 		1C5B4BB72AE17DE700BD93E4 /* SourceSans3-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-MediumItalic.ttf"; sourceTree = "<group>"; };
 		1C5B4BB82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-ExtraBold.ttf"; sourceTree = "<group>"; };
+		1C93D6AE2AE3A840006A7496 /* MeetUpsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetUpsTableViewCell.swift; sourceTree = "<group>"; };
+		1C93D6AF2AE3A840006A7496 /* MeetUpsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetUpsTableViewCell.xib; sourceTree = "<group>"; };
 		1CDADFBF2AE2656200765C7C /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
 		1CDADFC02AE2656200765C7C /* NewsFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsFeedTableViewCell.xib; sourceTree = "<group>"; };
 		5F486F9F9C243B7D2E3A899A /* Pods-S-Forum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S-Forum.release.xcconfig"; path = "Target Support Files/Pods-S-Forum/Pods-S-Forum.release.xcconfig"; sourceTree = "<group>"; };
@@ -243,7 +247,7 @@
 		1C2FC8542ADFCAFE00BAD9CB /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				1CB54A0C2AE2625E0014B97B /* Seemore */,
+				1C93D6AC2AE3A419006A7496 /* Meetups */,
 				1CB54A082AE250C30014B97B /* Newsfeed */,
 				1C2FC8632ADFD67600BAD9CB /* HomeViewController.swift */,
 				1C2FC8642ADFD67600BAD9CB /* HomeViewController.xib */,
@@ -300,6 +304,23 @@
 			path = font;
 			sourceTree = "<group>";
 		};
+		1C93D6AC2AE3A419006A7496 /* Meetups */ = {
+			isa = PBXGroup;
+			children = (
+				1C93D6AD2AE3A5B7006A7496 /* cells */,
+			);
+			path = Meetups;
+			sourceTree = "<group>";
+		};
+		1C93D6AD2AE3A5B7006A7496 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				1C93D6AE2AE3A840006A7496 /* MeetUpsTableViewCell.swift */,
+				1C93D6AF2AE3A840006A7496 /* MeetUpsTableViewCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		1CB54A082AE250C30014B97B /* Newsfeed */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,13 +336,6 @@
 				1CDADFC02AE2656200765C7C /* NewsFeedTableViewCell.xib */,
 			);
 			path = cells;
-			sourceTree = "<group>";
-		};
-		1CB54A0C2AE2625E0014B97B /* Seemore */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Seemore;
 			sourceTree = "<group>";
 		};
 		42BF53F47158F085E23C3962 /* Frameworks */ = {
@@ -462,6 +476,7 @@
 				1C2334AA2AD70BA5009027F6 /* Assets.xcassets in Resources */,
 				1C5B4BB92AE17DE700BD93E4 /* SourceSans3-Bold.ttf in Resources */,
 				1CDADFC22AE2656200765C7C /* NewsFeedTableViewCell.xib in Resources */,
+				1C93D6B12AE3A840006A7496 /* MeetUpsTableViewCell.xib in Resources */,
 				1C5B4BC82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf in Resources */,
 				1C5B4BC52AE17DE700BD93E4 /* SourceSans3-SemiBold.ttf in Resources */,
 				1C5B4BBA2AE17DE700BD93E4 /* SourceSans3-ExtraBoldItalic.ttf in Resources */,
@@ -541,6 +556,7 @@
 				1CDADFC12AE2656200765C7C /* NewsFeedTableViewCell.swift in Sources */,
 				1C2FC8622ADFD36E00BAD9CB /* AppImages.swift in Sources */,
 				1C2FC8692ADFD68D00BAD9CB /* ScheduleViewController.swift in Sources */,
+				1C93D6B02AE3A840006A7496 /* MeetUpsTableViewCell.swift in Sources */,
 				1C2FC8702ADFE05900BAD9CB /* AppColors.swift in Sources */,
 				1C2FC86D2ADFD69E00BAD9CB /* GroupViewController.swift in Sources */,
 				1C2FC8652ADFD67600BAD9CB /* HomeViewController.swift in Sources */,

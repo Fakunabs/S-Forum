@@ -11,6 +11,9 @@
         <array key="SourceSans3-Light.ttf">
             <string>SourceSans3-Light</string>
         </array>
+        <array key="SourceSans3-Regular.ttf">
+            <string>SourceSans3-Regular</string>
+        </array>
         <array key="SourceSans3-SemiBold.ttf">
             <string>SourceSans3-SemiBold</string>
         </array>
@@ -19,7 +22,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="S_Forum" customModuleProvider="target">
             <connections>
                 <outlet property="followingView" destination="JMT-9R-zbs" id="xwE-cj-20V"/>
-                <outlet property="homeTableView" destination="mxB-bN-rRA" id="bje-BD-fWX"/>
+                <outlet property="meetUpsView" destination="qFY-U1-e7G" id="AFj-7H-cXo"/>
+                <outlet property="meetupsTableView" destination="vd5-rw-JdS" id="rvj-RG-6Bw"/>
+                <outlet property="newsFeedTableView" destination="mxB-bN-rRA" id="2kS-XG-1p0"/>
                 <outlet property="postButton" destination="x5b-Ui-oWk" id="i12-j2-mee"/>
                 <outlet property="segmentControlView" destination="Is6-f9-bPH" id="MVK-1R-C9U"/>
                 <outlet property="statusTextField" destination="Vre-Jp-0nA" id="cFK-yk-hr3"/>
@@ -226,22 +231,80 @@
                     <rect key="frame" x="0.0" y="278" width="393" height="668"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTT-Pq-zMs">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="1000"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
                             <subviews>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mxB-bN-rRA">
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mxB-bN-rRA">
                                     <rect key="frame" x="15" y="20" width="363" height="597"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="597" id="2Kw-wi-i0a"/>
                                     </constraints>
                                 </tableView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See more" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvx-Ha-yl3">
+                                    <rect key="frame" x="15" y="617" width="60" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" id="8pc-Xt-ooF"/>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Msz-HJ-9dK"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SourceSans3-Regular" family="Source Sans 3" pointSize="14"/>
+                                    <color key="textColor" red="0.59215686274509804" green="0.59607843137254901" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-seemore-arrow-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Bky-SR-2wk">
+                                    <rect key="frame" x="77" y="622.5" width="18" height="14"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="18" id="IgB-tX-in2"/>
+                                        <constraint firstAttribute="height" constant="14" id="aV4-zF-hVe"/>
+                                    </constraints>
+                                </imageView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFY-U1-e7G">
+                                    <rect key="frame" x="15" y="650" width="363" height="421"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meetups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgr-g3-1pE">
+                                            <rect key="frame" x="30" y="20" width="69.5" height="27.5"/>
+                                            <fontDescription key="fontDescription" name="SourceSans3-SemiBold" family="Source Sans 3" pointSize="19"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-meetup-arrow-icon" translatesAutoresizingMaskIntoConstraints="NO" id="5M4-Uf-C4B">
+                                            <rect key="frame" x="107.5" y="27" width="18" height="14"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="18" id="SyU-SP-8ce"/>
+                                                <constraint firstAttribute="height" constant="14" id="gA9-X4-ZFc"/>
+                                            </constraints>
+                                        </imageView>
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vd5-rw-JdS">
+                                            <rect key="frame" x="30" y="56" width="313" height="345"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </tableView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.14901960784313725" green="0.1764705882352941" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="vd5-rw-JdS" firstAttribute="top" secondItem="Mgr-g3-1pE" secondAttribute="bottom" constant="8.5" id="0QM-2R-AyX"/>
+                                        <constraint firstAttribute="trailing" secondItem="vd5-rw-JdS" secondAttribute="trailing" constant="20" id="ENc-kc-37E"/>
+                                        <constraint firstAttribute="bottom" secondItem="vd5-rw-JdS" secondAttribute="bottom" constant="20" id="KzP-2P-9JE"/>
+                                        <constraint firstItem="Mgr-g3-1pE" firstAttribute="top" secondItem="qFY-U1-e7G" secondAttribute="top" constant="20" id="Lqv-A4-pv0"/>
+                                        <constraint firstAttribute="height" constant="421" id="VBH-Uh-yp8"/>
+                                        <constraint firstItem="vd5-rw-JdS" firstAttribute="leading" secondItem="qFY-U1-e7G" secondAttribute="leading" constant="30" id="ZAF-2Y-GPC"/>
+                                        <constraint firstItem="Mgr-g3-1pE" firstAttribute="leading" secondItem="qFY-U1-e7G" secondAttribute="leading" constant="30" id="htb-gG-nwY"/>
+                                        <constraint firstItem="5M4-Uf-C4B" firstAttribute="leading" secondItem="Mgr-g3-1pE" secondAttribute="trailing" constant="8" id="zHz-gP-Mui"/>
+                                        <constraint firstItem="5M4-Uf-C4B" firstAttribute="centerY" secondItem="Mgr-g3-1pE" secondAttribute="centerY" id="zTF-RC-70c"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="Bky-SR-2wk" firstAttribute="leading" secondItem="tvx-Ha-yl3" secondAttribute="trailing" constant="2" id="2Mv-z1-U9d"/>
                                 <constraint firstItem="mxB-bN-rRA" firstAttribute="leading" secondItem="uTT-Pq-zMs" secondAttribute="leading" constant="15" id="4aP-JH-mrO"/>
+                                <constraint firstAttribute="trailing" secondItem="qFY-U1-e7G" secondAttribute="trailing" constant="15" id="5rf-Oc-ERi"/>
+                                <constraint firstItem="qFY-U1-e7G" firstAttribute="top" secondItem="tvx-Ha-yl3" secondAttribute="bottom" constant="8" symbolic="YES" id="Azb-a1-TOZ"/>
+                                <constraint firstItem="Bky-SR-2wk" firstAttribute="centerY" secondItem="tvx-Ha-yl3" secondAttribute="centerY" id="FiL-ls-58T"/>
+                                <constraint firstItem="qFY-U1-e7G" firstAttribute="leading" secondItem="uTT-Pq-zMs" secondAttribute="leading" constant="15" id="PMs-sG-1f7"/>
+                                <constraint firstItem="tvx-Ha-yl3" firstAttribute="top" secondItem="mxB-bN-rRA" secondAttribute="bottom" id="Q40-xo-ZBK"/>
                                 <constraint firstAttribute="trailing" secondItem="mxB-bN-rRA" secondAttribute="trailing" constant="15" id="T8t-sh-m14"/>
-                                <constraint firstAttribute="height" constant="1000" id="TRB-db-QyM"/>
+                                <constraint firstAttribute="height" constant="1200" id="TRB-db-QyM"/>
                                 <constraint firstItem="mxB-bN-rRA" firstAttribute="top" secondItem="uTT-Pq-zMs" secondAttribute="top" constant="20" id="ZWX-d8-uh8"/>
+                                <constraint firstItem="tvx-Ha-yl3" firstAttribute="leading" secondItem="uTT-Pq-zMs" secondAttribute="leading" constant="15" id="yye-jA-poS"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -279,17 +342,19 @@
                 <constraint firstItem="QSu-4z-Cpn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zLT-4K-vJG"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="138.40579710144928" y="51.5625"/>
+            <point key="canvasLocation" x="-341.304347826087" y="41.517857142857139"/>
         </view>
     </objects>
     <resources>
         <image name="avatar" width="30" height="30"/>
         <image name="home-following-icon" width="28" height="28"/>
+        <image name="home-meetup-arrow-icon" width="14" height="12"/>
         <image name="home-message-icon" width="20" height="20"/>
         <image name="home-new-icon" width="28" height="28"/>
         <image name="home-notification-icon" width="20" height="20"/>
         <image name="home-popular-icon" width="28" height="28"/>
         <image name="home-search-icon" width="21" height="21"/>
+        <image name="home-seemore-arrow-icon" width="14" height="12"/>
         <image name="profile-avatar-image" width="36" height="36"/>
         <image name="temp-logo" width="30" height="30"/>
     </resources>
