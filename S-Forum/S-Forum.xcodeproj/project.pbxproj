@@ -40,6 +40,8 @@
 		1C5B4BC62AE17DE700BD93E4 /* SourceSans3-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BB62AE17DE700BD93E4 /* SourceSans3-Regular.ttf */; };
 		1C5B4BC72AE17DE700BD93E4 /* SourceSans3-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BB72AE17DE700BD93E4 /* SourceSans3-MediumItalic.ttf */; };
 		1C5B4BC82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BB82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf */; };
+		1C89AE2D2AEE1F480056B539 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C89AE2B2AEE1F480056B539 /* ForgotPasswordViewController.swift */; };
+		1C89AE2E2AEE1F480056B539 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C89AE2C2AEE1F480056B539 /* ForgotPasswordViewController.xib */; };
 		1C91A8B12AECC90A00FF9737 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C91A8AF2AECC90A00FF9737 /* LoginViewController.swift */; };
 		1C91A8B22AECC90A00FF9737 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C91A8B02AECC90A00FF9737 /* LoginViewController.xib */; };
 		1C91A8C92AECCFF000FF9737 /* Gilroy-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C91A8B52AECCFEF00FF9737 /* Gilroy-Heavy.ttf */; };
@@ -62,8 +64,11 @@
 		1C91A8DA2AECCFF000FF9737 /* Gilroy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C91A8C62AECCFF000FF9737 /* Gilroy-Regular.ttf */; };
 		1C91A8DB2AECCFF000FF9737 /* Gilroy-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C91A8C72AECCFF000FF9737 /* Gilroy-SemiBold.ttf */; };
 		1C91A8DC2AECCFF000FF9737 /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C91A8C82AECCFF000FF9737 /* Gilroy-Bold.ttf */; };
+		1C91A8DF2AED2BD500FF9737 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C91A8DD2AED2BD500FF9737 /* RegisterViewController.swift */; };
+		1C91A8E02AED2BD500FF9737 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C91A8DE2AED2BD500FF9737 /* RegisterViewController.xib */; };
 		1C93D6B02AE3A840006A7496 /* MeetUpsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C93D6AE2AE3A840006A7496 /* MeetUpsTableViewCell.swift */; };
 		1C93D6B12AE3A840006A7496 /* MeetUpsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C93D6AF2AE3A840006A7496 /* MeetUpsTableViewCell.xib */; };
+		1CB410AA2AEE052100703D37 /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB410A92AEE052100703D37 /* AppFonts.swift */; };
 		1CDADFC12AE2656200765C7C /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDADFBF2AE2656200765C7C /* NewsFeedTableViewCell.swift */; };
 		1CDADFC22AE2656200765C7C /* NewsFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CDADFC02AE2656200765C7C /* NewsFeedTableViewCell.xib */; };
 		F9936A3F9EEE087456394654 /* Pods_S_Forum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8585A1FE38F744E6986A40B4 /* Pods_S_Forum.framework */; };
@@ -124,6 +129,8 @@
 		1C5B4BB62AE17DE700BD93E4 /* SourceSans3-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Regular.ttf"; sourceTree = "<group>"; };
 		1C5B4BB72AE17DE700BD93E4 /* SourceSans3-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-MediumItalic.ttf"; sourceTree = "<group>"; };
 		1C5B4BB82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-ExtraBold.ttf"; sourceTree = "<group>"; };
+		1C89AE2B2AEE1F480056B539 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		1C89AE2C2AEE1F480056B539 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		1C91A8AF2AECC90A00FF9737 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1C91A8B02AECC90A00FF9737 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		1C91A8B52AECCFEF00FF9737 /* Gilroy-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Heavy.ttf"; sourceTree = "<group>"; };
@@ -146,8 +153,11 @@
 		1C91A8C62AECCFF000FF9737 /* Gilroy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Regular.ttf"; sourceTree = "<group>"; };
 		1C91A8C72AECCFF000FF9737 /* Gilroy-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-SemiBold.ttf"; sourceTree = "<group>"; };
 		1C91A8C82AECCFF000FF9737 /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Bold.ttf"; sourceTree = "<group>"; };
+		1C91A8DD2AED2BD500FF9737 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		1C91A8DE2AED2BD500FF9737 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		1C93D6AE2AE3A840006A7496 /* MeetUpsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetUpsTableViewCell.swift; sourceTree = "<group>"; };
 		1C93D6AF2AE3A840006A7496 /* MeetUpsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetUpsTableViewCell.xib; sourceTree = "<group>"; };
+		1CB410A92AEE052100703D37 /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		1CDADFBF2AE2656200765C7C /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
 		1CDADFC02AE2656200765C7C /* NewsFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsFeedTableViewCell.xib; sourceTree = "<group>"; };
 		5F486F9F9C243B7D2E3A899A /* Pods-S-Forum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S-Forum.release.xcconfig"; path = "Target Support Files/Pods-S-Forum/Pods-S-Forum.release.xcconfig"; sourceTree = "<group>"; };
@@ -233,6 +243,7 @@
 			children = (
 				1C2FC8612ADFD36E00BAD9CB /* AppImages.swift */,
 				1C2FC86F2ADFE05900BAD9CB /* AppColors.swift */,
+				1CB410A92AEE052100703D37 /* AppFonts.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -349,6 +360,8 @@
 		1C91A8AD2AECC8D900FF9737 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				1C91A8DD2AED2BD500FF9737 /* RegisterViewController.swift */,
+				1C91A8DE2AED2BD500FF9737 /* RegisterViewController.xib */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -356,6 +369,8 @@
 		1C91A8AE2AECC8E000FF9737 /* ForgotPassword */ = {
 			isa = PBXGroup;
 			children = (
+				1C89AE2B2AEE1F480056B539 /* ForgotPasswordViewController.swift */,
+				1C89AE2C2AEE1F480056B539 /* ForgotPasswordViewController.xib */,
 			);
 			path = ForgotPassword;
 			sourceTree = "<group>";
@@ -578,6 +593,7 @@
 				1C91A8D22AECCFF000FF9737 /* Gilroy-LightItalic.ttf in Resources */,
 				1C5B4BC32AE17DE700BD93E4 /* SourceSans3-LightItalic.ttf in Resources */,
 				1C5B4BC12AE17DE700BD93E4 /* SourceSans3-ExtraLightItalic.ttf in Resources */,
+				1C91A8E02AED2BD500FF9737 /* RegisterViewController.xib in Resources */,
 				1C5B4BC22AE17DE700BD93E4 /* SourceSans3-Black.ttf in Resources */,
 				1C91A8DC2AECCFF000FF9737 /* Gilroy-Bold.ttf in Resources */,
 				1C2334AD2AD70BA5009027F6 /* LaunchScreen.storyboard in Resources */,
@@ -596,6 +612,7 @@
 				1C91A8D72AECCFF000FF9737 /* Gilroy-HeavyItalic.ttf in Resources */,
 				1CDADFC22AE2656200765C7C /* NewsFeedTableViewCell.xib in Resources */,
 				1C91A8CA2AECCFF000FF9737 /* Gilroy-BlackItalic.ttf in Resources */,
+				1C89AE2E2AEE1F480056B539 /* ForgotPasswordViewController.xib in Resources */,
 				1C91A8D52AECCFF000FF9737 /* Gilroy-BoldItalic.ttf in Resources */,
 				1C91A8DB2AECCFF000FF9737 /* Gilroy-SemiBold.ttf in Resources */,
 				1C91A8B22AECC90A00FF9737 /* LoginViewController.xib in Resources */,
@@ -682,11 +699,14 @@
 				1C2FC85C2ADFCE4400BAD9CB /* NSObject+Extension.swift in Sources */,
 				1C2334A52AD70BA4009027F6 /* ViewController.swift in Sources */,
 				1CDADFC12AE2656200765C7C /* NewsFeedTableViewCell.swift in Sources */,
+				1CB410AA2AEE052100703D37 /* AppFonts.swift in Sources */,
 				1C2FC8622ADFD36E00BAD9CB /* AppImages.swift in Sources */,
 				1C2FC8692ADFD68D00BAD9CB /* ScheduleViewController.swift in Sources */,
+				1C91A8DF2AED2BD500FF9737 /* RegisterViewController.swift in Sources */,
 				1C93D6B02AE3A840006A7496 /* MeetUpsTableViewCell.swift in Sources */,
 				1C2FC8702ADFE05900BAD9CB /* AppColors.swift in Sources */,
 				1C2FC86D2ADFD69E00BAD9CB /* GroupViewController.swift in Sources */,
+				1C89AE2D2AEE1F480056B539 /* ForgotPasswordViewController.swift in Sources */,
 				1C2FC8652ADFD67600BAD9CB /* HomeViewController.swift in Sources */,
 				1C2FC8592ADFCBB800BAD9CB /* TabController.swift in Sources */,
 				1C2FC8602ADFCE6700BAD9CB /* UIColor+Extension.swift in Sources */,
