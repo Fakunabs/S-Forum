@@ -20,8 +20,6 @@ class HomeViewController: UIViewController {
     @IBOutlet private weak var postButton: UIButton!
     @IBOutlet private weak var statusTextField: UITextField!
     @IBOutlet private weak var newsFeedTableView: UITableView!
-    @IBOutlet private weak var meetUpsView: UIView!
-    @IBOutlet private weak var meetupsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,20 +33,15 @@ class HomeViewController: UIViewController {
         // Hide navigation bar
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.navigationController?.navigationBar.isHidden = true
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
 }
 
 extension HomeViewController {
     private func configTableView() {
-        meetupsTableView.separatorStyle = .none
         newsFeedTableView.separatorStyle = .none
-        meetupsTableView.dataSource = self
-        meetupsTableView.delegate = self
         newsFeedTableView.dataSource = self
         newsFeedTableView.delegate = self
         newsFeedTableView.register(UINib(nibName: NewsFeedTableViewCell.className, bundle: nil), forCellReuseIdentifier: NewsFeedTableViewCell.className)
-        meetupsTableView.register(UINib(nibName: MeetUpsTableViewCell.className, bundle: nil), forCellReuseIdentifier: MeetUpsTableViewCell.className)
     }
 }
 
@@ -58,7 +51,6 @@ extension HomeViewController {
         followingView.layer.cornerRadius = 3
         userStatusVIew.layer.cornerRadius = 10
         postButton.layer.cornerRadius = 10
-        meetUpsView.layer.cornerRadius = 10
     }
 }
 
@@ -76,29 +68,18 @@ extension HomeViewController {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == newsFeedTableView {
-            return 4
-        } else if tableView == meetupsTableView {
-            return 4
-        }
-        return 0
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == newsFeedTableView {
-            guard let newsfeedCell = newsFeedTableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.className, for: indexPath) as? NewsFeedTableViewCell else {return UITableViewCell()}
-            return newsfeedCell
-        } else if tableView == meetupsTableView {
-            guard let meetsUpCell = meetupsTableView.dequeueReusableCell(withIdentifier: MeetUpsTableViewCell.className, for: indexPath) as? MeetUpsTableViewCell else { return UITableViewCell() }
-            return meetsUpCell
-        }
-        return UITableViewCell()
+        guard let newsfeedCell = newsFeedTableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.className, for: indexPath) as? NewsFeedTableViewCell else {return UITableViewCell()}
+        return newsfeedCell
     }
 }
 
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            print("a")
+        print("a")
     }
 }

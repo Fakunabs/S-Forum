@@ -13,7 +13,8 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var passwordLoginTextField: UITextField!
     
     @IBAction func didTapNextViewAction(_ sender: Any) {
-        print("a")
+        let homeViewController = TabController()
+        self.navigationController?.pushViewController(homeViewController, animated: true)
     }
     
     
@@ -32,6 +33,11 @@ class LoginViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         configTextField(usernameLoginTextField, isSecureTextEntry: false, placeholder: "Username or Email")
         configTextField(passwordLoginTextField, isSecureTextEntry: true, placeholder: "Password")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationController?.navigationBar.isHidden = true
     }
 }
 

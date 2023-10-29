@@ -21,8 +21,6 @@
 		1C2FC8662ADFD67600BAD9CB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C2FC8642ADFD67600BAD9CB /* HomeViewController.xib */; };
 		1C2FC8692ADFD68D00BAD9CB /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2FC8672ADFD68D00BAD9CB /* ScheduleViewController.swift */; };
 		1C2FC86A2ADFD68D00BAD9CB /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C2FC8682ADFD68D00BAD9CB /* ScheduleViewController.xib */; };
-		1C2FC86D2ADFD69E00BAD9CB /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2FC86B2ADFD69E00BAD9CB /* GroupViewController.swift */; };
-		1C2FC86E2ADFD69E00BAD9CB /* GroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C2FC86C2ADFD69E00BAD9CB /* GroupViewController.xib */; };
 		1C2FC8702ADFE05900BAD9CB /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2FC86F2ADFE05900BAD9CB /* AppColors.swift */; };
 		1C5B4BB92AE17DE700BD93E4 /* SourceSans3-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BA92AE17DE400BD93E4 /* SourceSans3-Bold.ttf */; };
 		1C5B4BBA2AE17DE700BD93E4 /* SourceSans3-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BAA2AE17DE400BD93E4 /* SourceSans3-ExtraBoldItalic.ttf */; };
@@ -110,8 +108,6 @@
 		1C2FC8642ADFD67600BAD9CB /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		1C2FC8672ADFD68D00BAD9CB /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		1C2FC8682ADFD68D00BAD9CB /* ScheduleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleViewController.xib; sourceTree = "<group>"; };
-		1C2FC86B2ADFD69E00BAD9CB /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
-		1C2FC86C2ADFD69E00BAD9CB /* GroupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupViewController.xib; sourceTree = "<group>"; };
 		1C2FC86F2ADFE05900BAD9CB /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		1C5B4BA92AE17DE400BD93E4 /* SourceSans3-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Bold.ttf"; sourceTree = "<group>"; };
 		1C5B4BAA2AE17DE400BD93E4 /* SourceSans3-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -254,7 +250,6 @@
 				1C91A8AE2AECC8E000FF9737 /* ForgotPassword */,
 				1C91A8AD2AECC8D900FF9737 /* SignUp */,
 				1C91A8AC2AECC8CB00FF9737 /* Login */,
-				1C2FC8562ADFCB3000BAD9CB /* Group */,
 				1C2FC8552ADFCB0800BAD9CB /* Schedule */,
 				1C2FC8542ADFCAFE00BAD9CB /* Home */,
 			);
@@ -320,15 +315,6 @@
 				1C2FC8682ADFD68D00BAD9CB /* ScheduleViewController.xib */,
 			);
 			path = Schedule;
-			sourceTree = "<group>";
-		};
-		1C2FC8562ADFCB3000BAD9CB /* Group */ = {
-			isa = PBXGroup;
-			children = (
-				1C2FC86B2ADFD69E00BAD9CB /* GroupViewController.swift */,
-				1C2FC86C2ADFD69E00BAD9CB /* GroupViewController.xib */,
-			);
-			path = Group;
 			sourceTree = "<group>";
 		};
 		1C2FC8572ADFCB4300BAD9CB /* TabController */ = {
@@ -582,7 +568,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C2FC86E2ADFD69E00BAD9CB /* GroupViewController.xib in Resources */,
 				1C5B4BBB2AE17DE700BD93E4 /* SourceSans3-Medium.ttf in Resources */,
 				1C91A8D02AECCFF000FF9737 /* Gilroy-ExtraBoldItalic.ttf in Resources */,
 				1C5B4BBF2AE17DE700BD93E4 /* SourceSans3-ExtraLight.ttf in Resources */,
@@ -705,7 +690,6 @@
 				1C91A8DF2AED2BD500FF9737 /* RegisterViewController.swift in Sources */,
 				1C93D6B02AE3A840006A7496 /* MeetUpsTableViewCell.swift in Sources */,
 				1C2FC8702ADFE05900BAD9CB /* AppColors.swift in Sources */,
-				1C2FC86D2ADFD69E00BAD9CB /* GroupViewController.swift in Sources */,
 				1C89AE2D2AEE1F480056B539 /* ForgotPasswordViewController.swift in Sources */,
 				1C2FC8652ADFD67600BAD9CB /* HomeViewController.swift in Sources */,
 				1C2FC8592ADFCBB800BAD9CB /* TabController.swift in Sources */,

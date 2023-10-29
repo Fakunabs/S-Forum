@@ -23,10 +23,7 @@ class TabController: UITabBarController {
         
         let homeViewController = self.createNav(with: AppImages.homeTabbarIcon, viewController: HomeViewController())
         let scheduleViewController = self.createNav(with: AppImages.scheduleTabbarIcon, viewController: ScheduleViewController())
-        let groupViewController = self.createNav(with: AppImages.groupTabbarIcon, viewController: GroupViewController())
-        let podcastViewController = self.createNav(with: AppImages.podcastTabbarIcon, viewController: GroupViewController())
-        let interviewViewController = self.createNav(with: AppImages.interviewTabbarIcon, viewController: GroupViewController())
-        self.setViewControllers([homeViewController,scheduleViewController,groupViewController, podcastViewController,interviewViewController], animated: true)
+        self.setViewControllers([homeViewController,scheduleViewController], animated: true)
     
     }
     
