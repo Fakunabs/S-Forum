@@ -45,7 +45,7 @@
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ohQ-u1-DtE">
                     <rect key="frame" x="32" y="232" width="350" height="58"/>
-                    <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="0.81852752480000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.17254901960784313" green="0.20784313725490194" blue="0.23921568627450979" alpha="0.81852752480000002" colorSpace="calibratedRGB"/>
                     <color key="tintColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="58" id="JHA-On-2IK"/>
@@ -63,7 +63,7 @@
                 </imageView>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Gt-4g-wJV">
                     <rect key="frame" x="32" y="326" width="350" height="58"/>
-                    <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="0.82077814569999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.17254901959999999" green="0.20784313730000001" blue="0.23921568630000001" alpha="0.81852752480000002" colorSpace="calibratedRGB"/>
                     <color key="tintColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="58" id="Wn9-mg-bUv"/>
@@ -103,7 +103,7 @@
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Toq-Er-fzn">
                     <rect key="frame" x="32" y="420" width="350" height="58"/>
-                    <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="0.82077814569999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.17254901959999999" green="0.20784313730000001" blue="0.23921568630000001" alpha="0.81852752480000002" colorSpace="calibratedRGB"/>
                     <color key="tintColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="58" id="rIj-9Q-bUE"/>
@@ -154,7 +154,7 @@
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.11764705882352941" green="0.14509803921568626" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="SDL-eu-iVa" firstAttribute="centerY" secondItem="Toq-Er-fzn" secondAttribute="centerY" id="0XS-Ww-7tX"/>
                 <constraint firstItem="wLr-dV-Soy" firstAttribute="centerY" secondItem="2Gt-4g-wJV" secondAttribute="centerY" id="1wM-jb-ooU"/>

@@ -38,6 +38,9 @@
 		1C5B4BC62AE17DE700BD93E4 /* SourceSans3-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BB62AE17DE700BD93E4 /* SourceSans3-Regular.ttf */; };
 		1C5B4BC72AE17DE700BD93E4 /* SourceSans3-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BB72AE17DE700BD93E4 /* SourceSans3-MediumItalic.ttf */; };
 		1C5B4BC82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BB82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf */; };
+		1C77C6782AEF648C00F9186B /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77C6762AEF648C00F9186B /* UserViewController.swift */; };
+		1C77C6792AEF648C00F9186B /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C77C6772AEF648C00F9186B /* UserViewController.xib */; };
+		1C77C67C2AEF6A1100F9186B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77C67B2AEF6A1100F9186B /* BaseViewController.swift */; };
 		1C89AE2D2AEE1F480056B539 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C89AE2B2AEE1F480056B539 /* ForgotPasswordViewController.swift */; };
 		1C89AE2E2AEE1F480056B539 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C89AE2C2AEE1F480056B539 /* ForgotPasswordViewController.xib */; };
 		1C91A8B12AECC90A00FF9737 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C91A8AF2AECC90A00FF9737 /* LoginViewController.swift */; };
@@ -125,6 +128,9 @@
 		1C5B4BB62AE17DE700BD93E4 /* SourceSans3-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Regular.ttf"; sourceTree = "<group>"; };
 		1C5B4BB72AE17DE700BD93E4 /* SourceSans3-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-MediumItalic.ttf"; sourceTree = "<group>"; };
 		1C5B4BB82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-ExtraBold.ttf"; sourceTree = "<group>"; };
+		1C77C6762AEF648C00F9186B /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		1C77C6772AEF648C00F9186B /* UserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
+		1C77C67B2AEF6A1100F9186B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1C89AE2B2AEE1F480056B539 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		1C89AE2C2AEE1F480056B539 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		1C91A8AF2AECC90A00FF9737 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +236,7 @@
 		1C2FC84C2ADFCA4900BAD9CB /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				1C77C67B2AEF6A1100F9186B /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -247,6 +254,7 @@
 		1C2FC84E2ADFCA7600BAD9CB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1C77C67A2AEF649100F9186B /* User */,
 				1C91A8AE2AECC8E000FF9737 /* ForgotPassword */,
 				1C91A8AD2AECC8D900FF9737 /* SignUp */,
 				1C91A8AC2AECC8CB00FF9737 /* Login */,
@@ -332,6 +340,15 @@
 				1C91A8B32AECCFCA00FF9737 /* SourceSan3 */,
 			);
 			path = font;
+			sourceTree = "<group>";
+		};
+		1C77C67A2AEF649100F9186B /* User */ = {
+			isa = PBXGroup;
+			children = (
+				1C77C6762AEF648C00F9186B /* UserViewController.swift */,
+				1C77C6772AEF648C00F9186B /* UserViewController.xib */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		1C91A8AC2AECC8CB00FF9737 /* Login */ = {
@@ -595,6 +612,7 @@
 				1C91A8CE2AECCFF000FF9737 /* Gilroy-Light.ttf in Resources */,
 				1C91A8CC2AECCFF000FF9737 /* Gilroy-ThinItalic.ttf in Resources */,
 				1C91A8D72AECCFF000FF9737 /* Gilroy-HeavyItalic.ttf in Resources */,
+				1C77C6792AEF648C00F9186B /* UserViewController.xib in Resources */,
 				1CDADFC22AE2656200765C7C /* NewsFeedTableViewCell.xib in Resources */,
 				1C91A8CA2AECCFF000FF9737 /* Gilroy-BlackItalic.ttf in Resources */,
 				1C89AE2E2AEE1F480056B539 /* ForgotPasswordViewController.xib in Resources */,
@@ -685,6 +703,8 @@
 				1C2334A52AD70BA4009027F6 /* ViewController.swift in Sources */,
 				1CDADFC12AE2656200765C7C /* NewsFeedTableViewCell.swift in Sources */,
 				1CB410AA2AEE052100703D37 /* AppFonts.swift in Sources */,
+				1C77C67C2AEF6A1100F9186B /* BaseViewController.swift in Sources */,
+				1C77C6782AEF648C00F9186B /* UserViewController.swift in Sources */,
 				1C2FC8622ADFD36E00BAD9CB /* AppImages.swift in Sources */,
 				1C2FC8692ADFD68D00BAD9CB /* ScheduleViewController.swift in Sources */,
 				1C91A8DF2AED2BD500FF9737 /* RegisterViewController.swift in Sources */,

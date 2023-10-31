@@ -43,7 +43,7 @@
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6F-Ci-EmM">
                     <rect key="frame" x="32" y="232" width="350" height="58"/>
-                    <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="0.81852752483443714" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.17254901960784313" green="0.20784313725490194" blue="0.23921568627450979" alpha="0.81852752483443714" colorSpace="calibratedRGB"/>
                     <color key="tintColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="58" id="cyS-xm-xbn"/>
@@ -61,7 +61,7 @@
                 </imageView>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmk-Vf-ax5">
                     <rect key="frame" x="32" y="326" width="350" height="58"/>
-                    <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="0.82077814569536423" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.17254901960784313" green="0.20784313725490194" blue="0.23921568627450979" alpha="0.82077814569536423" colorSpace="calibratedRGB"/>
                     <color key="tintColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="58" id="T36-ya-4ob"/>
@@ -122,7 +122,7 @@
                         <action selector="didTapForgotPasswordAction:" destination="-1" eventType="touchUpInside" id="bl9-tb-RXw"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXd-MQ-0rS">
+                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXd-MQ-0rS">
                     <rect key="frame" x="32" y="403" width="170" height="29"/>
                     <fontDescription key="fontDescription" name="Gilroy-Medium" family="Gilroy-Medium" pointSize="17"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -135,7 +135,7 @@
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.11764705882352941" green="0.14509803921568626" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ueA-ap-AVu" firstAttribute="centerY" secondItem="hmk-Vf-ax5" secondAttribute="centerY" id="32n-V5-1UV"/>
                 <constraint firstItem="6Fg-8B-vkx" firstAttribute="top" secondItem="eXd-MQ-0rS" secondAttribute="bottom" constant="60" id="8YC-Dx-GKL"/>
@@ -165,13 +165,6 @@
             </constraints>
             <point key="canvasLocation" x="40.579710144927539" y="18.75"/>
         </view>
-        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="2Ay-u1-2xx">
-            <rect key="frame" x="0.0" y="0.0" width="97" height="34"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-            <textInputTraits key="textInputTraits"/>
-            <point key="canvasLocation" x="809" y="-112"/>
-        </textField>
     </objects>
     <resources>
         <image name="next-button-image" width="102" height="103"/>

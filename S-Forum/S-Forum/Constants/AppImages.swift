@@ -18,4 +18,7 @@ struct AppImages {
     static let homeFollowingIcon = UIImage(named: "home-following-icon")
     static let homeNewIcon = UIImage(named: "home-new-icon")
     static let homePopularIcon = UIImage(named: "home-popular-icon")
+    static let sgroupLogoIcon = UIImage(named: "sgroup-logo-icon")
+    static let homeSelected = UIImage(named: "home-selected")
+    static let calendarSelected = UIImage(named: "calendar-selected")
 }

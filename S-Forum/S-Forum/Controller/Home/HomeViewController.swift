@@ -6,13 +6,13 @@
 //
 
 import UIKit
-
-//enum HomeSectionType: CaseIterable {
-//    case newfeed
-//    case meetup
-//}
+import DropDown
 
 class HomeViewController: UIViewController {
+    
+    private let refreshControl = UIRefreshControl()
+    private let myDropDown = DropDown()
+    private let actionList = ["Profile","Logout"]
     
     @IBOutlet private weak var segmentControlView: UIView!
     @IBOutlet private weak var followingView: UIView!
@@ -20,12 +20,35 @@ class HomeViewController: UIViewController {
     @IBOutlet private weak var postButton: UIButton!
     @IBOutlet private weak var statusTextField: UITextField!
     @IBOutlet private weak var newsFeedTableView: UITableView!
+    @IBOutlet private weak var avatarImage: UIImageView!
+    @IBOutlet private weak var dropDownButton: UIButton!
+    @IBOutlet private weak var dropDownView: UIView!
+    
+    @IBAction private func didTapedDropDownAction(_ sender: Any) {
+        myDropDown.show()
+        myDropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+            switch item {
+            case "Profile":
+                let userViewController = UserViewController()
+                self.navigationController?.pushViewController(userViewController, animated: true)
+            case "Logout":
+                self.tabBarController?.dismiss(animated: false, completion: nil)
+                let loginViewController = LoginViewController()
+                let navigationController = UINavigationController(rootViewController: loginViewController)
+                UIApplication.shared.windows.first?.rootViewController = navigationController
+                UIApplication.shared.windows.first?.makeKeyAndVisible()
+            default:
+                break
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configViewConerRadius()
         setUpTextField()
         configTableView()
+        configDropDown()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +65,8 @@ extension HomeViewController {
         newsFeedTableView.dataSource = self
         newsFeedTableView.delegate = self
         newsFeedTableView.register(UINib(nibName: NewsFeedTableViewCell.className, bundle: nil), forCellReuseIdentifier: NewsFeedTableViewCell.className)
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        newsFeedTableView.addSubview(refreshControl)
     }
 }
 
@@ -51,6 +76,18 @@ extension HomeViewController {
         followingView.layer.cornerRadius = 3
         userStatusVIew.layer.cornerRadius = 10
         postButton.layer.cornerRadius = 10
+        dropDownView.layer.cornerRadius = 10
+    }
+    
+    private func configDropDown() {
+        myDropDown.cornerRadius = 10
+        myDropDown.anchorView = dropDownView
+        myDropDown.dataSource = actionList
+        myDropDown.bottomOffset = CGPoint(x: 0, y: (myDropDown.anchorView?.plainView.bounds.height)!)
+        myDropDown.topOffset = CGPoint(x: 0, y: -(myDropDown.anchorView?.plainView.bounds.height)!)
+        myDropDown.direction = .bottom
+        myDropDown.textColor = AppColors.vermilion
+        myDropDown.textFont = AppFonts.fontGilroyMedium(size: 15)!
     }
 }
 
@@ -63,6 +100,15 @@ extension HomeViewController {
         statusTextField.rightView = rightView
         statusTextField.leftViewMode = .always
         statusTextField.rightViewMode = .always
+    }
+    
+    @objc func refreshData() {
+        refreshControl.endRefreshing()
+    }
+    
+    func scrollToRefresh() {
+        newsFeedTableView.setContentOffset(CGPoint(x: 0, y: -100), animated: true)
+        refreshData()
     }
 }
 
@@ -83,3 +129,8 @@ extension HomeViewController: UITableViewDelegate {
         print("a")
     }
 }
+
+// chỗ này là đăng xuất
+
+// chỗ này là chức năng push qua màn hình user
+

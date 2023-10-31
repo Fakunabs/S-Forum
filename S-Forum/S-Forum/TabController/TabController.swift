@@ -13,23 +13,25 @@ class TabController: UITabBarController {
         super.viewDidLoad()
         self.setupTabs()
         self.setupTabHeight()
+        self.delegate = self
     }
 
     
     private func setupTabs() {
         UITabBar.appearance().backgroundColor = AppColors.outerSpace
-        UITabBar.appearance().unselectedItemTintColor = .white
-        self.tabBar.tintColor = AppColors.vermilion
-        
         let homeViewController = self.createNav(with: AppImages.homeTabbarIcon, viewController: HomeViewController())
         let scheduleViewController = self.createNav(with: AppImages.scheduleTabbarIcon, viewController: ScheduleViewController())
-        self.setViewControllers([homeViewController,scheduleViewController], animated: true)
-    
+        UITabBar.appearance().unselectedItemTintColor = .white
+        homeViewController.tabBarItem.selectedImage = AppImages.homeSelected
+        scheduleViewController.tabBarItem.selectedImage = AppImages.calendarSelected
+        self.setViewControllers([homeViewController, scheduleViewController], animated: true)
+        
+        
     }
     
     private func setupTabHeight() {
         for item in self.tabBar.items ?? [] {
-            item.imageInsets = UIEdgeInsets(top: 12, left: 0, bottom: -(12), right: 0)
+            item.imageInsets = UIEdgeInsets(top: -10, left: 0, bottom: -30, right: 0)
         }
     }
     
@@ -39,3 +41,18 @@ class TabController: UITabBarController {
         return navigation
     }
 }
+
+extension TabController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if let navigationController = viewController as? UINavigationController,
+           let rootViewController = navigationController.viewControllers.first,
+           rootViewController is HomeViewController {
+            // Đây là tab "Home," thực hiện kéo table view xuống và làm mới màn hình Home ở đây
+            if let homeViewController = rootViewController as? HomeViewController {
+                homeViewController.scrollToRefresh()
+            }
+        }
+    }
+}
+
+
