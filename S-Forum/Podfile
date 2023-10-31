@@ -10,6 +10,7 @@ target 'S-Forum' do
   pod 'Alamofire'
   pod 'IQKeyboardManagerSwift'
   pod 'SwiftLint'
+  pod 'DropDown', '2.3.2'
 end
 
 post_install do |installer|

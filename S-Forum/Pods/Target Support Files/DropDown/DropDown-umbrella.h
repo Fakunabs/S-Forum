@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double BetterSegmentedControlVersionNumber;
-FOUNDATION_EXPORT const unsigned char BetterSegmentedControlVersionString[];
+FOUNDATION_EXPORT double DropDownVersionNumber;
+FOUNDATION_EXPORT const unsigned char DropDownVersionString[];
 

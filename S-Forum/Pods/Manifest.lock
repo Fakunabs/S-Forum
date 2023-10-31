@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.7.1)
-  - BetterSegmentedControl (1.0)
+  - DropDown (2.3.2)
   - IQKeyboardManagerSwift (6.5.11)
   - SDWebImage (5.15.8):
     - SDWebImage/Core (= 5.15.8)
@@ -9,7 +9,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - BetterSegmentedControl (= 1.0)
+  - DropDown (= 2.3.2)
   - IQKeyboardManagerSwift
   - SDWebImage (~> 5.0)
   - SwiftLint
@@ -17,18 +17,18 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - BetterSegmentedControl
+    - DropDown
     - IQKeyboardManagerSwift
     - SDWebImage
     - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
-  BetterSegmentedControl: 92555f980e4273ec414d6187acc5b811659a9abf
+  DropDown: 7f87abecc28f9b4edad810fe1211c5c018c257e5
   IQKeyboardManagerSwift: c7955c0bdbf7b2eb29bb7daaa44e3d90f55a9a85
   SDWebImage: cb032eba469c54e0000e78bcb0a13cdde0a52798
   SwiftLint: 5ce4d6a8ff83f1b5fd5ad5dbf30965d35af65e44
 
-PODFILE CHECKSUM: f8dcc23980920c33d0554f0b75f4656b6f67ba30
+PODFILE CHECKSUM: e34f8f6d3e5a328f3f8f7b63b3fc14c3289f7c0e
 
 COCOAPODS: 1.12.1
