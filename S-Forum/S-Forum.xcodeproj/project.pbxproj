@@ -22,6 +22,7 @@
 		1C2FC8692ADFD68D00BAD9CB /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2FC8672ADFD68D00BAD9CB /* ScheduleViewController.swift */; };
 		1C2FC86A2ADFD68D00BAD9CB /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C2FC8682ADFD68D00BAD9CB /* ScheduleViewController.xib */; };
 		1C2FC8702ADFE05900BAD9CB /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2FC86F2ADFE05900BAD9CB /* AppColors.swift */; };
+		1C5721982AF1792E001D569E /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5721972AF1792E001D569E /* UIApplication+Extension.swift */; };
 		1C5B4BB92AE17DE700BD93E4 /* SourceSans3-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BA92AE17DE400BD93E4 /* SourceSans3-Bold.ttf */; };
 		1C5B4BBA2AE17DE700BD93E4 /* SourceSans3-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BAA2AE17DE400BD93E4 /* SourceSans3-ExtraBoldItalic.ttf */; };
 		1C5B4BBB2AE17DE700BD93E4 /* SourceSans3-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BAB2AE17DE500BD93E4 /* SourceSans3-Medium.ttf */; };
@@ -67,8 +68,6 @@
 		1C91A8DC2AECCFF000FF9737 /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C91A8C82AECCFF000FF9737 /* Gilroy-Bold.ttf */; };
 		1C91A8DF2AED2BD500FF9737 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C91A8DD2AED2BD500FF9737 /* RegisterViewController.swift */; };
 		1C91A8E02AED2BD500FF9737 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C91A8DE2AED2BD500FF9737 /* RegisterViewController.xib */; };
-		1C93D6B02AE3A840006A7496 /* MeetUpsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C93D6AE2AE3A840006A7496 /* MeetUpsTableViewCell.swift */; };
-		1C93D6B12AE3A840006A7496 /* MeetUpsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C93D6AF2AE3A840006A7496 /* MeetUpsTableViewCell.xib */; };
 		1CB410AA2AEE052100703D37 /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB410A92AEE052100703D37 /* AppFonts.swift */; };
 		1CDADFC12AE2656200765C7C /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDADFBF2AE2656200765C7C /* NewsFeedTableViewCell.swift */; };
 		1CDADFC22AE2656200765C7C /* NewsFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CDADFC02AE2656200765C7C /* NewsFeedTableViewCell.xib */; };
@@ -112,6 +111,7 @@
 		1C2FC8672ADFD68D00BAD9CB /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		1C2FC8682ADFD68D00BAD9CB /* ScheduleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleViewController.xib; sourceTree = "<group>"; };
 		1C2FC86F2ADFE05900BAD9CB /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		1C5721972AF1792E001D569E /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		1C5B4BA92AE17DE400BD93E4 /* SourceSans3-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Bold.ttf"; sourceTree = "<group>"; };
 		1C5B4BAA2AE17DE400BD93E4 /* SourceSans3-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		1C5B4BAB2AE17DE500BD93E4 /* SourceSans3-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Medium.ttf"; sourceTree = "<group>"; };
@@ -157,8 +157,6 @@
 		1C91A8C82AECCFF000FF9737 /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Bold.ttf"; sourceTree = "<group>"; };
 		1C91A8DD2AED2BD500FF9737 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1C91A8DE2AED2BD500FF9737 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
-		1C93D6AE2AE3A840006A7496 /* MeetUpsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetUpsTableViewCell.swift; sourceTree = "<group>"; };
-		1C93D6AF2AE3A840006A7496 /* MeetUpsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetUpsTableViewCell.xib; sourceTree = "<group>"; };
 		1CB410A92AEE052100703D37 /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		1CDADFBF2AE2656200765C7C /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
 		1CDADFC02AE2656200765C7C /* NewsFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsFeedTableViewCell.xib; sourceTree = "<group>"; };
@@ -278,6 +276,7 @@
 			children = (
 				1C2FC85B2ADFCE4400BAD9CB /* NSObject+Extension.swift */,
 				1C2FC85F2ADFCE6700BAD9CB /* UIColor+Extension.swift */,
+				1C5721972AF1792E001D569E /* UIApplication+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -308,7 +307,6 @@
 		1C2FC8542ADFCAFE00BAD9CB /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				1C93D6AC2AE3A419006A7496 /* Meetups */,
 				1CB54A082AE250C30014B97B /* Newsfeed */,
 				1C2FC8632ADFD67600BAD9CB /* HomeViewController.swift */,
 				1C2FC8642ADFD67600BAD9CB /* HomeViewController.xib */,
@@ -426,23 +424,6 @@
 				1C91A8C52AECCFF000FF9737 /* Gilroy-UltraLightItalic.ttf */,
 			);
 			path = Gilroy;
-			sourceTree = "<group>";
-		};
-		1C93D6AC2AE3A419006A7496 /* Meetups */ = {
-			isa = PBXGroup;
-			children = (
-				1C93D6AD2AE3A5B7006A7496 /* cells */,
-			);
-			path = Meetups;
-			sourceTree = "<group>";
-		};
-		1C93D6AD2AE3A5B7006A7496 /* cells */ = {
-			isa = PBXGroup;
-			children = (
-				1C93D6AE2AE3A840006A7496 /* MeetUpsTableViewCell.swift */,
-				1C93D6AF2AE3A840006A7496 /* MeetUpsTableViewCell.xib */,
-			);
-			path = cells;
 			sourceTree = "<group>";
 		};
 		1CB54A082AE250C30014B97B /* Newsfeed */ = {
@@ -569,6 +550,9 @@
 				Base,
 			);
 			mainGroup = 1C2334942AD70BA4009027F6;
+			packageReferences = (
+				1C6528892AF25FEC0030E5A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 1C23349E2AD70BA4009027F6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -620,7 +604,6 @@
 				1C91A8DB2AECCFF000FF9737 /* Gilroy-SemiBold.ttf in Resources */,
 				1C91A8B22AECC90A00FF9737 /* LoginViewController.xib in Resources */,
 				1C91A8D42AECCFF000FF9737 /* Gilroy-ExtraBold.ttf in Resources */,
-				1C93D6B12AE3A840006A7496 /* MeetUpsTableViewCell.xib in Resources */,
 				1C91A8D82AECCFF000FF9737 /* Gilroy-Medium.ttf in Resources */,
 				1C5B4BC82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf in Resources */,
 				1C5B4BC52AE17DE700BD93E4 /* SourceSans3-SemiBold.ttf in Resources */,
@@ -708,9 +691,9 @@
 				1C2FC8622ADFD36E00BAD9CB /* AppImages.swift in Sources */,
 				1C2FC8692ADFD68D00BAD9CB /* ScheduleViewController.swift in Sources */,
 				1C91A8DF2AED2BD500FF9737 /* RegisterViewController.swift in Sources */,
-				1C93D6B02AE3A840006A7496 /* MeetUpsTableViewCell.swift in Sources */,
 				1C2FC8702ADFE05900BAD9CB /* AppColors.swift in Sources */,
 				1C89AE2D2AEE1F480056B539 /* ForgotPasswordViewController.swift in Sources */,
+				1C5721982AF1792E001D569E /* UIApplication+Extension.swift in Sources */,
 				1C2FC8652ADFD67600BAD9CB /* HomeViewController.swift in Sources */,
 				1C2FC8592ADFCBB800BAD9CB /* TabController.swift in Sources */,
 				1C2FC8602ADFCE6700BAD9CB /* UIColor+Extension.swift in Sources */,
@@ -893,6 +876,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9YN9674B5Y;
@@ -905,14 +889,15 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.XuanThinh.S-Forum";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -925,6 +910,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9YN9674B5Y;
@@ -937,14 +923,15 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.XuanThinh.S-Forum";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1067,6 +1054,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1C6528892AF25FEC0030E5A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.17.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 1C2334952AD70BA4009027F6 /* Project object */;
 }

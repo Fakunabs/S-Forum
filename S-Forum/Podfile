@@ -11,6 +11,7 @@ target 'S-Forum' do
   pod 'IQKeyboardManagerSwift'
   pod 'SwiftLint'
   pod 'DropDown', '2.3.2'
+  pod 'FirebaseCore'
 end
 
 post_install do |installer|

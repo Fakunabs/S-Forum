@@ -13,7 +13,6 @@ class TabController: UITabBarController {
         super.viewDidLoad()
         self.setupTabs()
         self.setupTabHeight()
-        self.delegate = self
     }
 
     
@@ -31,7 +30,7 @@ class TabController: UITabBarController {
     
     private func setupTabHeight() {
         for item in self.tabBar.items ?? [] {
-            item.imageInsets = UIEdgeInsets(top: -10, left: 0, bottom: -30, right: 0)
+            item.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -25, right: 0)
         }
     }
     
@@ -39,19 +38,6 @@ class TabController: UITabBarController {
         let navigation = UINavigationController(rootViewController: viewController)
         navigation.tabBarItem.image = image
         return navigation
-    }
-}
-
-extension TabController: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if let navigationController = viewController as? UINavigationController,
-           let rootViewController = navigationController.viewControllers.first,
-           rootViewController is HomeViewController {
-            // Đây là tab "Home," thực hiện kéo table view xuống và làm mới màn hình Home ở đây
-            if let homeViewController = rootViewController as? HomeViewController {
-                homeViewController.scrollToRefresh()
-            }
-        }
     }
 }
 

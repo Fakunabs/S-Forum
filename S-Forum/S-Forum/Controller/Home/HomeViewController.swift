@@ -11,7 +11,7 @@ import DropDown
 class HomeViewController: UIViewController {
     
     private let refreshControl = UIRefreshControl()
-    private let myDropDown = DropDown()
+    private let homeDropDown = DropDown()
     private let actionList = ["Profile","Logout"]
     
     @IBOutlet private weak var segmentControlView: UIView!
@@ -23,10 +23,11 @@ class HomeViewController: UIViewController {
     @IBOutlet private weak var avatarImage: UIImageView!
     @IBOutlet private weak var dropDownButton: UIButton!
     @IBOutlet private weak var dropDownView: UIView!
+    @IBOutlet private weak var homeSearchBarTextField: UITextField!
     
     @IBAction private func didTapedDropDownAction(_ sender: Any) {
-        myDropDown.show()
-        myDropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+        homeDropDown.show()
+        homeDropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             switch item {
             case "Profile":
                 let userViewController = UserViewController()
@@ -46,7 +47,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configViewConerRadius()
-        setUpTextField()
+        configTextField(homeSearchBarTextField, placeholder: "Type here to search")
+        configTextField(statusTextField, placeholder: "Let’s share what going...")
         configTableView()
         configDropDown()
     }
@@ -77,38 +79,42 @@ extension HomeViewController {
         userStatusVIew.layer.cornerRadius = 10
         postButton.layer.cornerRadius = 10
         dropDownView.layer.cornerRadius = 10
+        postButton.titleLabel?.font = AppFonts.fontSourceSans3SemiBold(size: 17)!
     }
     
     private func configDropDown() {
-        myDropDown.cornerRadius = 10
-        myDropDown.anchorView = dropDownView
-        myDropDown.dataSource = actionList
-        myDropDown.bottomOffset = CGPoint(x: 0, y: (myDropDown.anchorView?.plainView.bounds.height)!)
-        myDropDown.topOffset = CGPoint(x: 0, y: -(myDropDown.anchorView?.plainView.bounds.height)!)
-        myDropDown.direction = .bottom
-        myDropDown.textColor = AppColors.vermilion
-        myDropDown.textFont = AppFonts.fontGilroyMedium(size: 15)!
+        homeDropDown.cornerRadius = 10
+        homeDropDown.anchorView = dropDownView
+        homeDropDown.dataSource = actionList
+        homeDropDown.bottomOffset = CGPoint(x: 0, y: (homeDropDown.anchorView?.plainView.bounds.height)!)
+        homeDropDown.topOffset = CGPoint(x: 0, y: -(homeDropDown.anchorView?.plainView.bounds.height)!)
+        homeDropDown.direction = .bottom
+        homeDropDown.textColor = AppColors.vermilion
+        homeDropDown.textFont = AppFonts.fontGilroyMedium(size: 15)!
     }
 }
 
 extension HomeViewController {
-    private func setUpTextField() {
-        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: statusTextField.frame.height))
-        let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: statusTextField.frame.height))
-        statusTextField.layer.cornerRadius = 10
-        statusTextField.leftView = leftView
-        statusTextField.rightView = rightView
-        statusTextField.leftViewMode = .always
-        statusTextField.rightViewMode = .always
+    private func configTextField(_ textField: UITextField, placeholder: String) {
+        let textFields : [UITextField] = [statusTextField, homeSearchBarTextField]
+        let placeholderAttributes: [NSAttributedString.Key: Any] = [
+            .font: AppFonts.fontSourceSans3Light(size: 15)!,
+        ]
+        let attributedPlaceholder = NSAttributedString(string: placeholder, attributes: placeholderAttributes)
+        textField.attributedPlaceholder = attributedPlaceholder
+        textFields.forEach { textField in
+            let leftView = UIView(frame: CGRect(x: 0, y: 0, width: textField == homeSearchBarTextField ? 40 : 10, height: textField.frame.height))
+            let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
+            textField.leftView = leftView
+            textField.rightView = rightView
+            textField.rightViewMode = .always
+            textField.leftViewMode = .always
+            textField.layer.cornerRadius = 10
+        }
     }
     
     @objc func refreshData() {
         refreshControl.endRefreshing()
-    }
-    
-    func scrollToRefresh() {
-        newsFeedTableView.setContentOffset(CGPoint(x: 0, y: -100), animated: true)
-        refreshData()
     }
 }
 
@@ -129,8 +135,3 @@ extension HomeViewController: UITableViewDelegate {
         print("a")
     }
 }
-
-// chỗ này là đăng xuất
-
-// chỗ này là chức năng push qua màn hình user
-
