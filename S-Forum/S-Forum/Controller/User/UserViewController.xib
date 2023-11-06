@@ -29,6 +29,7 @@
                 <outlet property="coverImageView" destination="dwi-SC-TMQ" id="TRM-qQ-11w"/>
                 <outlet property="dropDownView" destination="VFu-d9-urz" id="wDh-IQ-e1W"/>
                 <outlet property="editProfileButton" destination="d77-jb-ulP" id="QyB-TQ-mVj"/>
+                <outlet property="userBlogTableView" destination="pfX-Cd-X9l" id="psU-9a-Yfn"/>
                 <outlet property="userScrollView" destination="Y6M-pV-3md" id="Avb-ai-ZbZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -245,7 +246,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pfX-Cd-X9l">
-                                            <rect key="frame" x="8" y="270" width="362" height="504"/>
+                                            <rect key="frame" x="8" y="277" width="362" height="497"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableView>
                                     </subviews>
@@ -264,7 +265,7 @@
                                         <constraint firstItem="3by-m1-bND" firstAttribute="centerX" secondItem="nr1-CZ-tYe" secondAttribute="centerX" id="G31-by-h51"/>
                                         <constraint firstItem="nr1-CZ-tYe" firstAttribute="top" secondItem="tKN-6J-jci" secondAttribute="bottom" constant="30" id="OZp-W3-79X"/>
                                         <constraint firstItem="0pC-e1-xfw" firstAttribute="leading" secondItem="au8-yB-ZqL" secondAttribute="leading" constant="14" id="SAZ-Vw-EOs"/>
-                                        <constraint firstItem="pfX-Cd-X9l" firstAttribute="top" secondItem="3by-m1-bND" secondAttribute="bottom" constant="8" id="VAe-aM-nUq"/>
+                                        <constraint firstItem="pfX-Cd-X9l" firstAttribute="top" secondItem="3by-m1-bND" secondAttribute="bottom" constant="15" id="VAe-aM-nUq"/>
                                         <constraint firstItem="he1-w7-eId" firstAttribute="top" secondItem="PEJ-St-rb4" secondAttribute="bottom" constant="8" symbolic="YES" id="VNJ-uj-XjF"/>
                                         <constraint firstAttribute="trailing" secondItem="d77-jb-ulP" secondAttribute="trailing" constant="20" id="XsE-gc-uiS"/>
                                         <constraint firstItem="AKt-Ug-RH8" firstAttribute="centerX" secondItem="au8-yB-ZqL" secondAttribute="centerX" constant="45" id="Ydw-9F-E3E"/>

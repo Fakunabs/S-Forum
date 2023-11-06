@@ -10,6 +10,12 @@ import DropDown
 
 class UserViewController: UIViewController {
     
+    var newFeedBlogList : [NewFeedBlogs] = [
+        NewFeedBlogs(image: AppImages.tempImage1!, title: "The 4-step SEO framework that led to a 1000% increase in traffic. Let’s talk about blogging and SEO...", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
+        NewFeedBlogs(image: AppImages.tempImage2!, title: "OnePay - Online Payment Processing Web App - Download from uihut.com", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
+        NewFeedBlogs(image: AppImages.tempImage3!, title: "Designing User Interfaces - how I sold 1800 copies in a few months by Michal Malewicz", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
+    ]
+    
     private let refreshControl = UIRefreshControl()
     private let userDropDown = DropDown()
     private let actionList = ["Logout"]
@@ -20,7 +26,7 @@ class UserViewController: UIViewController {
     @IBOutlet private weak var editProfileButton: UIButton!
     @IBOutlet private weak var dropDownView: UIView!
     @IBOutlet private weak var userScrollView: UIScrollView!
-    
+    @IBOutlet private weak var userBlogTableView: UITableView!
     
     @IBAction private func didTapReturnAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -42,6 +48,7 @@ class UserViewController: UIViewController {
         configCornerRadius()
         configDropDown()
         reloadScrollView()
+        configTableView()
     }
 }
 
@@ -53,6 +60,14 @@ extension UserViewController {
         avatarUserImageView.layer.cornerRadius = avatarUserImageView.frame.size.width / 2
         avatarUserImageView.clipsToBounds = true
     }
+    
+    private func configTableView() {
+        userBlogTableView.separatorStyle = .none
+        userBlogTableView.dataSource = self
+        userBlogTableView.delegate = self
+        userBlogTableView.register(UINib(nibName: NewsFeedTableViewCell.className, bundle: nil), forCellReuseIdentifier: NewsFeedTableViewCell.className)
+    }
+    
     
     private func configDropDown() {
         userDropDown.cornerRadius = 10
@@ -72,5 +87,21 @@ extension UserViewController {
     
     @objc private func refreshData() {
         refreshControl.endRefreshing()
+    }
+}
+
+extension UserViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return newFeedBlogList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let userBlogFeed = userBlogTableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.className, for: indexPath) as? NewsFeedTableViewCell else {return UITableViewCell()}
+        userBlogFeed.setUpData(newfeedBlog: newFeedBlogList[indexPath.row])
+        return userBlogFeed
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("a")
     }
 }
