@@ -13,9 +13,16 @@ class HomeViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     private let homeDropDown = DropDown()
     private let actionList = ["Profile","Logout"]
+    private var searchingName = [String]()
+    private var searching = false
+    
+    var newFeedBlogList : [NewFeedBlogs] = [
+        NewFeedBlogs(image: AppImages.tempImage1!, title: "The 4-step SEO framework that led to a 1000% increase in traffic. Let’s talk about blogging and SEO...", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
+        NewFeedBlogs(image: AppImages.tempImage2!, title: "OnePay - Online Payment Processing Web App - Download from uihut.com", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
+        NewFeedBlogs(image: AppImages.tempImage3!, title: "Designing User Interfaces - how I sold 1800 copies in a few months by Michal Malewicz", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
+    ]
     
     @IBOutlet private weak var segmentControlView: UIView!
-    @IBOutlet private weak var followingView: UIView!
     @IBOutlet private weak var userStatusVIew: UIView!
     @IBOutlet private weak var postButton: UIButton!
     @IBOutlet private weak var statusTextField: UITextField!
@@ -42,6 +49,24 @@ class HomeViewController: UIViewController {
                 break
             }
         }
+    }
+    
+    @IBAction func homeSearchBarHandlerAction(_ sender: UITextField) {
+        if let searchText = sender.text?.trimmingCharacters(in: .whitespacesAndNewlines), !searchText.isEmpty {
+            searchingName = newFeedBlogList.filter { blog in
+                let titleMatch = blog.title.localizedCaseInsensitiveContains(searchText)
+                let authorMatch = blog.author.localizedCaseInsensitiveContains(searchText)
+                let hashtagMatch = blog.firstHastag.localizedCaseInsensitiveContains(searchText) ||
+                blog.secondHastag.localizedCaseInsensitiveContains(searchText) ||
+                blog.thirdHastag.localizedCaseInsensitiveContains(searchText)
+                return titleMatch || authorMatch || hashtagMatch
+            }.map { $0.title }
+            searching = true
+        } else {
+            searchingName.removeAll()
+            searching = false
+        }
+        newsFeedTableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -75,7 +100,6 @@ extension HomeViewController {
 extension HomeViewController {
     private func configViewConerRadius() {
         segmentControlView.layer.cornerRadius = 10
-        followingView.layer.cornerRadius = 3
         userStatusVIew.layer.cornerRadius = 10
         postButton.layer.cornerRadius = 10
         dropDownView.layer.cornerRadius = 10
@@ -120,11 +144,20 @@ extension HomeViewController {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return searching ? searchingName.count : newFeedBlogList.count
     }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let newsfeedCell = newsFeedTableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.className, for: indexPath) as? NewsFeedTableViewCell else {return UITableViewCell()}
+        guard let newsfeedCell = newsFeedTableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.className, for: indexPath) as? NewsFeedTableViewCell else {
+            return UITableViewCell()
+        }
+        if searching {
+            let searchResult = newFeedBlogList.filter { $0.title.localizedCaseInsensitiveContains(searchingName[indexPath.row]) }
+            newsfeedCell.setUpData(newfeedBlog: searchResult.first!)
+        } else {
+            newsfeedCell.setUpData(newfeedBlog: newFeedBlogList[indexPath.row])
+        }
         return newsfeedCell
     }
 }
@@ -132,6 +165,5 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("a")
     }
 }

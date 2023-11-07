@@ -21,4 +21,7 @@ struct AppImages {
     static let sgroupLogoIcon = UIImage(named: "sgroup-logo-icon")
     static let homeSelected = UIImage(named: "home-selected")
     static let calendarSelected = UIImage(named: "calendar-selected")
+    static let tempImage1 = UIImage(named: "temp-image")
+    static let tempImage2 = UIImage(named: "temp-image2")
+    static let tempImage3 = UIImage(named: "temp-image3")
 }

@@ -11,4 +11,7 @@ struct AppColors {
     static let outerSpace = UIColor(hex: "#262D34")
     static let vermilion = UIColor(hex: "#FF4401")
     static let redOrange = UIColor(hex: "#FF4B26")
+    static let doveGray = UIColor(hex: "#676767")
+    static let red = UIColor(hex: "#FF0000")
 }
+
