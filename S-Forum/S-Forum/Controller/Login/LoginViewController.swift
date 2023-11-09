@@ -18,13 +18,47 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var passwordLoginTextField: UITextField!
     @IBOutlet private weak var emailErrorMessageLabel: UILabel!
     @IBOutlet private weak var passwordErrorMessageLabel: UILabel!
+    @IBOutlet private weak var arrowRightImage: UIImageView!
+    @IBOutlet private weak var loadingButtonActivityIndicatorView: UIActivityIndicatorView!
     
-    @IBOutlet private weak var loginButton: UIButton!
-    @IBAction func didTapNextViewAction(_ sender: Any) {
+    
+    @IBAction private func didTapNextViewAction(_ sender: Any) {
+        // Hide the arrow and show the loading indicator
+        arrowRightImage.isHidden = true
+        loadingButtonActivityIndicatorView.isHidden = false
+        loadingButtonActivityIndicatorView.startAnimating()
+        
         if validateInputTextFields() {
             guard let email = emailLoginTextField.text, let password = passwordLoginTextField.text else { return }
-            let homeViewController = TabController()
-            self.navigationController?.pushViewController(homeViewController, animated: true)
+            Task {
+                do {
+                    let _ = try await Repository.login(email: email, password: password)
+                    
+                    // Wait for 2 seconds before transitioning
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        let tabController = TabController()
+                        if let homeNavController = tabController.viewControllers?.first as? UINavigationController,
+                           let homeViewController = homeNavController.viewControllers.first as? HomeViewController {
+                            homeViewController.updateUserInfo()
+                        }
+                        self.navigationController?.pushViewController(tabController, animated: true)
+                    }
+                    
+                } catch {
+                    // If login fails, show the arrow and hide the loading indicator
+                    DispatchQueue.main.async {
+                        self.arrowRightImage.isHidden = false
+                        self.loadingButtonActivityIndicatorView.stopAnimating()
+                        self.loadingButtonActivityIndicatorView.isHidden = true
+                        // Handle the error, show an alert or error message to the user
+                    }
+                }
+            }
+        } else {
+            // If validation fails, show the arrow and hide the loading indicator
+            arrowRightImage.isHidden = false
+            loadingButtonActivityIndicatorView.stopAnimating()
+            loadingButtonActivityIndicatorView.isHidden = true
         }
     }
     
@@ -51,6 +85,7 @@ class LoginViewController: UIViewController {
         configTextField(emailLoginTextField, isSecureTextEntry: false, placeholder: "Enter your email")
         configTextField(passwordLoginTextField, isSecureTextEntry: true, placeholder: "Enter your Password")
         setUpErrorMessageLabels(isHidden: true)
+        setUpLoadView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +99,7 @@ extension LoginViewController {
         let textFields : [UITextField] = [emailLoginTextField, passwordLoginTextField]
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .font: AppFonts.fontGilroyMedium(size: 15)!,
+            .foregroundColor: AppColors.doveGray,
         ]
         let attributedPlaceholder = NSAttributedString(string: placeholder, attributes: placeholderAttributes)
         textField.layer.borderWidth = 1
@@ -114,16 +150,12 @@ extension LoginViewController {
     
     
     private func checkPasswordStrength(password: String) {
-        if password.count < 6 {
-            passwordErrorMessageLabel.text = "Required at least 6 characters"
+        if password.count < 8 {
+            passwordErrorMessageLabel.text = "Required at least 8 characters"
         } else if !password.containsNumber {
             passwordErrorMessageLabel.text = "Required contain a number"
-        } else if !password.containsSpecialCharacters {
-            passwordErrorMessageLabel.text = "Required special character"
-        } else if !password.containsCapitalLetters {
-            passwordErrorMessageLabel.text = "Required capital letters"
         } else {
-            passwordErrorMessageLabel.text = ""
+            passwordErrorMessageLabel.text = "Not contain special char"
         }
     }
     
@@ -133,6 +165,10 @@ extension LoginViewController {
             field?.layer.borderColor = AppColors.outerSpace.cgColor
             field?.tintColor = AppColors.outerSpace
         }
+    }
+    
+    private func setUpLoadView() {
+        loadingButtonActivityIndicatorView.isHidden = true
     }
 }
 

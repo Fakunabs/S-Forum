@@ -21,7 +21,7 @@ class APIService {
         guard let url = URL(string: path) else {
             throw HttpError.invalidUrl
         }
-        let encoding: ParameterEncoding = URLEncoding.default
+        let encoding: ParameterEncoding = JSONEncoding.default
         
         return try await withUnsafeThrowingContinuation { continuation in
             AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
