@@ -46,7 +46,14 @@ class RegisterViewController: UIViewController {
     
     @IBAction func didTapRegisterAction(_ sender: Any) {
         if validateInputTextFields() {
-            print("a")
+            guard let email = emailRegisterTextField.text, let password = passwordRegisterTextField.text else { return }
+            Task {
+                do {
+                    let _ = try await Repository.regiter(email: email, password: password)
+                } catch {
+                    
+                }
+            }
         } else {
             print("b")
         }
@@ -69,6 +76,7 @@ extension RegisterViewController {
         let textFields : [UITextField] = [emailRegisterTextField, passwordRegisterTextField, confirmPasswordRegisterTextField]
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .font: AppFonts.fontGilroyMedium(size: 15)!,
+            .foregroundColor: AppColors.doveGray,
         ]
         let attributedPlaceholder = NSAttributedString(string: placeholder, attributes: placeholderAttributes)
         textField.attributedPlaceholder = attributedPlaceholder
@@ -157,10 +165,6 @@ extension RegisterViewController {
             passwordRegisterErrorMessageLabel.text = "Required at least 6 characters"
         } else if !password.containsNumber {
             passwordRegisterErrorMessageLabel.text = "Required contain a number"
-        } else if !password.containsSpecialCharacters {
-            passwordRegisterErrorMessageLabel.text = "Required special character"
-        } else if !password.containsCapitalLetters {
-            passwordRegisterErrorMessageLabel.text = "Required capital letters"
         } else {
             passwordRegisterErrorMessageLabel.text = ""
         }

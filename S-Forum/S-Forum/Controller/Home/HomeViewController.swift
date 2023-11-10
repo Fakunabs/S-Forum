@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import SDWebImage
 
 class HomeViewController: UIViewController {
     
@@ -17,7 +18,7 @@ class HomeViewController: UIViewController {
     private var searching = false
     
     var newFeedBlogList : [NewFeedBlogs] = [
-        NewFeedBlogs(image: AppImages.tempImage1!, title: "The 4-step SEO framework that led to a 1000% increase in traffic. Let’s talk about blogging and SEO...", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
+        NewFeedBlogs(image: AppImages.tempImage1!, title: "The 4-step SEO framework framework led to a 1000% increase in traffic. Let’s talk about blogging and SEO...", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
         NewFeedBlogs(image: AppImages.tempImage2!, title: "OnePay - Online Payment Processing Web App - Download from uihut.com", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
         NewFeedBlogs(image: AppImages.tempImage3!, title: "Designing User Interfaces - how I sold 1800 copies in a few months by Michal Malewicz", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
     ]
@@ -76,6 +77,8 @@ class HomeViewController: UIViewController {
         configTextField(statusTextField, placeholder: "Let’s share what going...")
         configTableView()
         configDropDown()
+        updateUserInfo()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,6 +86,7 @@ class HomeViewController: UIViewController {
         // Hide navigation bar
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.navigationController?.navigationBar.isHidden = true
+        updateUserInfo()
     }
 }
 
@@ -123,6 +127,7 @@ extension HomeViewController {
         let textFields : [UITextField] = [statusTextField, homeSearchBarTextField]
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .font: AppFonts.fontSourceSans3Light(size: 15)!,
+            .foregroundColor: AppColors.doveGray,
         ]
         let attributedPlaceholder = NSAttributedString(string: placeholder, attributes: placeholderAttributes)
         textField.attributedPlaceholder = attributedPlaceholder
@@ -152,18 +157,28 @@ extension HomeViewController: UITableViewDataSource {
         guard let newsfeedCell = newsFeedTableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.className, for: indexPath) as? NewsFeedTableViewCell else {
             return UITableViewCell()
         }
+        let blog: NewFeedBlogs
         if searching {
             let searchResult = newFeedBlogList.filter { $0.title.localizedCaseInsensitiveContains(searchingName[indexPath.row]) }
-            newsfeedCell.setUpData(newfeedBlog: searchResult.first!)
+            blog = searchResult.first!
         } else {
-            newsfeedCell.setUpData(newfeedBlog: newFeedBlogList[indexPath.row])
+            blog = newFeedBlogList[indexPath.row]
         }
+        newsfeedCell.setUpData(newfeedBlog: blog, searchText: searching ? homeSearchBarTextField.text : nil)
         return newsfeedCell
     }
+
 }
 
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+}
+
+extension HomeViewController {
+    func updateUserInfo() {
+        guard let user = AuthenticationManager.shared.user else { return }
+        avatarImage.sd_setImage(with: URL(string: user.profileImage ?? "user-default-avatar"), placeholderImage: UIImage(named: "user-default-avatar"), options: .continueInBackground, completed: nil)
     }
 }

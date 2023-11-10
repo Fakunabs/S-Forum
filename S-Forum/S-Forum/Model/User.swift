@@ -19,6 +19,22 @@ struct LoginResponse: Codable {
     }
 }
 
+struct RegisterResponse: Codable {
+    let message: String?
+    
+    private enum CodingKeys : String, CodingKey {
+        case message
+    }
+}
+
+struct ForgotPasswordResponse: Codable {
+    let message: String?
+    
+    private enum CodingKeys : String, CodingKey {
+        case message
+    }
+}
+
 struct User: Codable {
     let _id : String
     var firstName : String

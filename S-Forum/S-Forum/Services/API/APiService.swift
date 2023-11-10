@@ -32,6 +32,8 @@ class APIService {
                     switch response.response?.statusCode {
                     case 200,201:
                         continuation.resume(returning: data)
+                    case 400:
+                        print("Bad Request")
                     case 500:
                         print("Server Error")
                         break

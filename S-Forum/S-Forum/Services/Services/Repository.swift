@@ -8,10 +8,6 @@
 import Foundation
 import Alamofire
 
-//enum CusErr: Error {
-//    case statusCode(Int)
-//}
-
 class Repository {
     static func login(email: String, password: String) async throws -> User? {
         let body: [String: String] = [
@@ -29,6 +25,35 @@ class Repository {
             throw error
         }
     }
+    
+    static func regiter(email: String, password: String) async throws -> RegisterResponse? {
+        let body: [String: String] = [
+            "email": email,
+            "password": password
+        ]
+        do {
+            let data : RegisterResponse = try await APIService.shareInitial.requestAPIData(from: APIURLs.regiter, parameters: body, method: .post, headers: [
+                "Content-Type": "application/json"])
+            return data
+        } catch {
+            throw error
+        }
+    }
+    
+    static func forgotPassword(email: String) async throws -> ForgotPasswordResponse? {
+        let body: [String: String] = [
+            "email": email,
+        ]
+        do {
+            let data : ForgotPasswordResponse = try await APIService.shareInitial.requestAPIData(from: APIURLs.regiter, parameters: body, method: .post, headers: [
+                "Content-Type": "application/json"])
+            return data
+        } catch {
+            throw error
+        }
+    }
+    
+    
 }
 
 

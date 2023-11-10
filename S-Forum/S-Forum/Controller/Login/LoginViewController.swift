@@ -23,42 +23,35 @@ class LoginViewController: UIViewController {
     
     
     @IBAction private func didTapNextViewAction(_ sender: Any) {
-        // Hide the arrow and show the loading indicator
-        arrowRightImage.isHidden = true
-        loadingButtonActivityIndicatorView.isHidden = false
+        setUpLoadView(isHidden: false)
         loadingButtonActivityIndicatorView.startAnimating()
-        
         if validateInputTextFields() {
             guard let email = emailLoginTextField.text, let password = passwordLoginTextField.text else { return }
             Task {
                 do {
                     let _ = try await Repository.login(email: email, password: password)
-                    
-                    // Wait for 2 seconds before transitioning
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {}
                         let tabController = TabController()
                         if let homeNavController = tabController.viewControllers?.first as? UINavigationController,
                            let homeViewController = homeNavController.viewControllers.first as? HomeViewController {
                             homeViewController.updateUserInfo()
                         }
                         self.navigationController?.pushViewController(tabController, animated: true)
-                    }
-                    
                 } catch {
-                    // If login fails, show the arrow and hide the loading indicator
                     DispatchQueue.main.async {
-                        self.arrowRightImage.isHidden = false
+                        self.setUpLoadView(isHidden: true)
                         self.loadingButtonActivityIndicatorView.stopAnimating()
-                        self.loadingButtonActivityIndicatorView.isHidden = true
-                        // Handle the error, show an alert or error message to the user
+                        let loginErrorView = LoginErrorViewController()
+                        loginErrorView.modalPresentationStyle = .overFullScreen
+                        loginErrorView.modalTransitionStyle = .coverVertical
+                        self.present(loginErrorView, animated: false, completion: nil)
+                        print(error.localizedDescription)
                     }
                 }
             }
         } else {
-            // If validation fails, show the arrow and hide the loading indicator
-            arrowRightImage.isHidden = false
+            setUpLoadView(isHidden: true)
             loadingButtonActivityIndicatorView.stopAnimating()
-            loadingButtonActivityIndicatorView.isHidden = true
         }
     }
     
@@ -85,7 +78,7 @@ class LoginViewController: UIViewController {
         configTextField(emailLoginTextField, isSecureTextEntry: false, placeholder: "Enter your email")
         configTextField(passwordLoginTextField, isSecureTextEntry: true, placeholder: "Enter your Password")
         setUpErrorMessageLabels(isHidden: true)
-        setUpLoadView()
+        setUpLoadView(isHidden: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -167,8 +160,9 @@ extension LoginViewController {
         }
     }
     
-    private func setUpLoadView() {
-        loadingButtonActivityIndicatorView.isHidden = true
+    private func setUpLoadView(isHidden: Bool) {
+        arrowRightImage.isHidden = !isHidden
+        loadingButtonActivityIndicatorView.isHidden = isHidden
     }
 }
 
@@ -188,3 +182,6 @@ extension LoginViewController: UITextFieldDelegate {
         setUpErrorMessageLabels(isHidden: true)
     }
 }
+
+
+
