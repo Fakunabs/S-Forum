@@ -8,22 +8,56 @@
 import UIKit
 
 class LostConnectionViewController: UIViewController {
+    
+    private let spinningCircleView = SpinnerLoadingView()
 
+    @IBOutlet private weak var loadingView: UIView!
+    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var dismissButton: UIButton!
+    
+    @IBAction func didTapCloseButtonAction(_ sender: Any) {
+        createFeedbackButton()
+        dismissLoginView()
+    }
+    
+    @IBAction func didTapCloseErrorViewAction(_ sender: Any) {
+        dismissLoginView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configView()
+        configureSpinningCircleView()
+        spinningCircleView.animate()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    
+    private func configView() {
+        self.view.backgroundColor = .clear
+        containerView.layer.cornerRadius = 20
+        dismissButton.layer.cornerRadius = 20
+    }
+    
+    private func createFeedbackButton() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+        
+        let generator2 = UIImpactFeedbackGenerator(style: .soft)
+        generator2.impactOccurred()
+    }
+    
+    private func configureSpinningCircleView() {
+        loadingView.addSubview(spinningCircleView)
     }
 
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension LostConnectionViewController {
+    @objc private func dismissLoginView() {
+        self.dismiss(animated: false)
     }
-    */
-
 }

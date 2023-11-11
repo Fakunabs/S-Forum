@@ -8,7 +8,7 @@
 import Foundation
 
 struct APIURLs {
-    static let baseURL = "http://localhost:3000/api"
+    static let baseURL = "https://capstone-be-deploy-production.up.railway.app/api"
     static let login = baseURL + "/auth/login"
     static let regiter = baseURL + "/auth/register"
 }

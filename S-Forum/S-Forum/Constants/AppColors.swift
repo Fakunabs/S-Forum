@@ -13,5 +13,6 @@ struct AppColors {
     static let redOrange = UIColor(hex: "#FF4B26")
     static let doveGray = UIColor(hex: "#676767")
     static let red = UIColor(hex: "#FF0000")
+    static let boulder = UIColor(hex: "#7B7B7B")
 }
 

@@ -8,7 +8,7 @@
 import UIKit
 import DropDown
 
-class UserViewController: UIViewController {
+class UserViewController: BaseViewController {
     
     var newFeedBlogList : [NewFeedBlogs] = [
         NewFeedBlogs(image: AppImages.tempImage1!, title: "The 4-step SEO framework that led to a 1000% increase in traffic. Let’s talk about blogging and SEO...", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
@@ -97,7 +97,6 @@ extension UserViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let userBlogFeed = userBlogTableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.className, for: indexPath) as? NewsFeedTableViewCell else {return UITableViewCell()}
-        userBlogFeed.setUpData(newfeedBlog: newFeedBlogList[indexPath.row])
         return userBlogFeed
     }
     

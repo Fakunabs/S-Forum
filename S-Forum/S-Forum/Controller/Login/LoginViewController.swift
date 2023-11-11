@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
     
     private var isPasswordHidden = true
     private var isBothTextFieldsNotEmpty: Bool {

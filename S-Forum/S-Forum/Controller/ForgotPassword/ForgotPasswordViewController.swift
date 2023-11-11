@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ForgotPasswordViewController: UIViewController {
+class ForgotPasswordViewController: BaseViewController {
 
     struct Constant {
         static let resetPassword = "* We will send you a message to set or reset your new password"

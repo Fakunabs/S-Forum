@@ -24,4 +24,5 @@ struct AppImages {
     static let tempImage1 = UIImage(named: "temp-image")
     static let tempImage2 = UIImage(named: "temp-image2")
     static let tempImage3 = UIImage(named: "temp-image3")
+    static let userDefaultAvatar = UIImage(named: "user-default-avatar")
 }

@@ -10,17 +10,15 @@ import iProgressHUD
 
 class LoginErrorViewController: UIViewController {
     
-
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var dismissButton: UIButton!
     
-    @IBAction func didTapCloseButtonAction(_ sender: Any) {
+    @IBAction private func didTapCloseButtonAction(_ sender: Any) {
         dismissLoginView()
         createFeedbackButton()
     }
-    @IBAction func didTapCloseErrorViewAction(_ sender: Any) {
+    @IBAction private func didTapCloseErrorViewAction(_ sender: Any) {
         dismissLoginView()
-        createFeedbackButton()
     }
     
     override func viewDidLoad() {

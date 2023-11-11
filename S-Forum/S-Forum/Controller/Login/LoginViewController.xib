@@ -98,6 +98,17 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agw-8d-srN">
+                    <rect key="frame" x="302.5" y="467" width="79" height="76"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="79" id="11P-Hu-Keh"/>
+                        <constraint firstAttribute="height" constant="76" id="E7I-CV-CRl"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <connections>
+                        <action selector="didTapNextViewAction:" destination="-1" eventType="touchUpInside" id="M7e-qW-aGe"/>
+                    </connections>
+                </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="preloading-next-image" translatesAutoresizingMaskIntoConstraints="NO" id="AIs-1e-3ZE">
                     <rect key="frame" x="281" y="462.5" width="122" height="115"/>
                     <constraints>
@@ -165,17 +176,6 @@
                     </constraints>
                     <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </activityIndicatorView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agw-8d-srN">
-                    <rect key="frame" x="302.5" y="467" width="79" height="76"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="79" id="11P-Hu-Keh"/>
-                        <constraint firstAttribute="height" constant="76" id="E7I-CV-CRl"/>
-                    </constraints>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <connections>
-                        <action selector="didTapNextViewAction:" destination="-1" eventType="touchUpInside" id="M7e-qW-aGe"/>
-                    </connections>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.11764705882352941" green="0.14509803921568626" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

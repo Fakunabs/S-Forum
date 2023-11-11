@@ -9,7 +9,7 @@ import UIKit
 
 
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: BaseViewController {
     
     struct Constant {
         static let registerDescriptionText = "By clicking the Register button, you agree to the public offer"
@@ -26,8 +26,10 @@ class RegisterViewController: UIViewController {
     @IBOutlet private weak var registerDescriptionLabel: UILabel!
     @IBOutlet private weak var emailRegisterErrorMessageLabel: UILabel!
     @IBOutlet private weak var passwordRegisterErrorMessageLabel: UILabel!
-    
     @IBOutlet private weak var confirmErrorMessageLabel: UILabel!
+    @IBOutlet private weak var arrowRightImage: UIImageView!
+    
+    @IBOutlet private weak var loadingButtonActivityIndicatorView: UIActivityIndicatorView!
     
     @IBAction func didTapReturnViewAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -45,17 +47,25 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func didTapRegisterAction(_ sender: Any) {
+        setUpLoadView(isHidden: false)
+        loadingButtonActivityIndicatorView.startAnimating()
         if validateInputTextFields() {
             guard let email = emailRegisterTextField.text, let password = passwordRegisterTextField.text else { return }
             Task {
                 do {
                     let _ = try await Repository.regiter(email: email, password: password)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {}
                 } catch {
-                    
+                    DispatchQueue.main.async {
+                        self.setUpLoadView(isHidden: true)
+                        self.loadingButtonActivityIndicatorView.stopAnimating()
+                    }
+                    print(error.localizedDescription)
                 }
             }
         } else {
-            print("b")
+            setUpLoadView(isHidden: true)
+            loadingButtonActivityIndicatorView.stopAnimating()
         }
 
     }
@@ -68,6 +78,7 @@ class RegisterViewController: UIViewController {
         configTextField(confirmPasswordRegisterTextField, isSecureTextEntry: true, placeholder: "Confirm password")
         configRegisterDescriptionText()
         setUpErrorMessageLabels(isHidden: true)
+        setUpLoadView(isHidden: true)
     }
 }
 
@@ -111,6 +122,11 @@ extension RegisterViewController {
         emailRegisterErrorMessageLabel.isHidden = isHidden
         passwordRegisterErrorMessageLabel.isHidden = isHidden
         confirmErrorMessageLabel.isHidden = isHidden
+    }
+    
+    private func setUpLoadView(isHidden: Bool) {
+        arrowRightImage.isHidden = !isHidden
+        loadingButtonActivityIndicatorView.isHidden = isHidden
     }
     
     private func validateInputTextFields() -> Bool {
