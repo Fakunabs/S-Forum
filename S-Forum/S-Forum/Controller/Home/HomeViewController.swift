@@ -9,7 +9,7 @@ import UIKit
 import DropDown
 import SDWebImage
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
     
     private let refreshControl = UIRefreshControl()
     private let homeDropDown = DropDown()

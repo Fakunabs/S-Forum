@@ -8,7 +8,7 @@
 import UIKit
 
 class NewsFeedTableViewCell: UITableViewCell {
-
+    
     
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var firstHastagLabel: UILabel!
@@ -34,10 +34,23 @@ class NewsFeedTableViewCell: UITableViewCell {
 }
 
 extension NewsFeedTableViewCell {
-    func setUpData(newfeedBlog: NewFeedBlogs) {
-        contentLabel.text = newfeedBlog.title
+    func setUpData(newfeedBlog: NewFeedBlogs, searchText: String?) {
+        // Làm bôi đen chữ được tìm kiếm trong title
+        if let searchText = searchText, !searchText.isEmpty {
+            let titleAttributedString = highlightTextInString(newfeedBlog.title, searchText: searchText)
+            contentLabel.attributedText = titleAttributedString
+        } else {
+            contentLabel.text = newfeedBlog.title
+        }
+        
+        // Làm bôi đen chữ được tìm kiếm trong author
+        if let searchText = searchText, !searchText.isEmpty {
+            let authorAttributedString = highlightTextInString(newfeedBlog.author, searchText: searchText)
+            authorLabel.attributedText = authorAttributedString
+        } else {
+            authorLabel.text = newfeedBlog.author
+        }
         blogImageView.image = newfeedBlog.image
-        authorLabel.text = newfeedBlog.author
         likeLabel.text = newfeedBlog.like
         disLikeLabel.text = newfeedBlog.dislike
         commentLabel.text = newfeedBlog.comments
@@ -45,4 +58,23 @@ extension NewsFeedTableViewCell {
         secondHastagLabel.text = newfeedBlog.secondHastag
         thirdHastagLabel.text = newfeedBlog.thirdHastag
     }
+    
+    private func highlightTextInString(_ text: String, searchText: String) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: text)
+        var searchRange = NSRange(location: 0, length: text.count)
+        
+        while searchRange.location != NSNotFound {
+            let range = (text as NSString).range(of: searchText, options: .caseInsensitive, range: searchRange)
+            if range.location != NSNotFound {
+                attributedString.addAttribute(NSAttributedString.Key.backgroundColor, value: AppColors.boulder, range: range)
+                searchRange.location = range.upperBound
+                searchRange.length = text.count - searchRange.location
+            } else {
+                searchRange.location = NSNotFound
+            }
+        }
+        return attributedString
+    }
+
 }
+
