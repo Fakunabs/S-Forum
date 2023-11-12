@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "tick-success-icon.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

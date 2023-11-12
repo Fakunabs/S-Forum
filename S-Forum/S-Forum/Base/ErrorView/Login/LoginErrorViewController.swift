@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import iProgressHUD
 
 class LoginErrorViewController: UIViewController {
     
