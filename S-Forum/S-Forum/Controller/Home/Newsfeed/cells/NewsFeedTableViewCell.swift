@@ -75,6 +75,17 @@ extension NewsFeedTableViewCell {
         }
         return attributedString
     }
-
+    
+    func setUpDataForTemp(newfeedBlog: NewFeedBlogs) {
+        contentLabel.text = newfeedBlog.title
+        authorLabel.text = newfeedBlog.author
+        blogImageView.image = newfeedBlog.image
+        likeLabel.text = newfeedBlog.like
+        disLikeLabel.text = newfeedBlog.dislike
+        commentLabel.text = newfeedBlog.comments
+        firstHastagLabel.text = newfeedBlog.firstHastag
+        secondHastagLabel.text = newfeedBlog.secondHastag
+        thirdHastagLabel.text = newfeedBlog.thirdHastag
+    }
 }
 

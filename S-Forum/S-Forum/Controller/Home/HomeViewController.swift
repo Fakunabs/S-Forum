@@ -8,6 +8,7 @@
 import UIKit
 import DropDown
 import SDWebImage
+import BetterSegmentedControl
 
 class HomeViewController: BaseViewController {
     
@@ -23,10 +24,10 @@ class HomeViewController: BaseViewController {
         NewFeedBlogs(image: AppImages.tempImage3!, title: "Designing User Interfaces - how I sold 1800 copies in a few months by Michal Malewicz", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
     ]
     
-    @IBOutlet private weak var segmentControlView: UIView!
-    @IBOutlet private weak var userStatusVIew: UIView!
-    @IBOutlet private weak var postButton: UIButton!
+    @IBOutlet private weak var homeSegmentControl: UISegmentedControl!
+    @IBOutlet private weak var statusView: UIView!
     @IBOutlet private weak var statusTextField: UITextField!
+    @IBOutlet private weak var postButton: UIButton!
     @IBOutlet private weak var newsFeedTableView: UITableView!
     @IBOutlet private weak var avatarImage: UIImageView!
     @IBOutlet private weak var dropDownButton: UIButton!
@@ -70,6 +71,11 @@ class HomeViewController: BaseViewController {
         newsFeedTableView.reloadData()
     }
     
+    
+    @IBAction func didTapSegmentAction(_ sender: Any) {
+        newsFeedTableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configViewConerRadius()
@@ -78,7 +84,6 @@ class HomeViewController: BaseViewController {
         configTableView()
         configDropDown()
         updateUserInfo()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,8 +108,7 @@ extension HomeViewController {
 
 extension HomeViewController {
     private func configViewConerRadius() {
-        segmentControlView.layer.cornerRadius = 10
-        userStatusVIew.layer.cornerRadius = 10
+        statusView.layer.cornerRadius = 10
         postButton.layer.cornerRadius = 10
         dropDownView.layer.cornerRadius = 10
         postButton.titleLabel?.font = AppFonts.fontSourceSans3SemiBold(size: 17)!
@@ -120,6 +124,8 @@ extension HomeViewController {
         homeDropDown.textColor = AppColors.vermilion
         homeDropDown.textFont = AppFonts.fontGilroyMedium(size: 15)!
     }
+    
+    
 }
 
 extension HomeViewController {
@@ -149,22 +155,45 @@ extension HomeViewController {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searching ? searchingName.count : newFeedBlogList.count
+//        return searching ? searchingName.count : newFeedBlogList.count
+        switch homeSegmentControl.selectedSegmentIndex {
+        case 0:
+            return searching ? searchingName.count : newFeedBlogList.count
+        case 1:
+            return 1
+        default:
+            break
+        }
+        return 0
     }
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let newsfeedCell = newsFeedTableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.className, for: indexPath) as? NewsFeedTableViewCell else {
             return UITableViewCell()
         }
-        let blog: NewFeedBlogs
-        if searching {
-            let searchResult = newFeedBlogList.filter { $0.title.localizedCaseInsensitiveContains(searchingName[indexPath.row]) }
-            blog = searchResult.first!
-        } else {
-            blog = newFeedBlogList[indexPath.row]
+        switch homeSegmentControl.selectedSegmentIndex {
+        case 0:
+            var blog: NewFeedBlogs?
+            if searching {
+                if indexPath.row < searchingName.count {
+                    let searchResult = newFeedBlogList.filter { $0.title.localizedCaseInsensitiveContains(searchingName[indexPath.row]) }
+                    blog = searchResult.first
+                }
+            } else {
+                if indexPath.row < newFeedBlogList.count {
+                    blog = newFeedBlogList[indexPath.row]
+                }
+            }
+            
+            if let blog = blog {
+                newsfeedCell.setUpData(newfeedBlog: blog, searchText: searching ? homeSearchBarTextField.text : nil)
+            }
+        case 1:
+            let blog = newFeedBlogList[indexPath.row]
+            newsfeedCell.setUpDataForTemp(newfeedBlog: blog)
+        default:
+            break
         }
-        newsfeedCell.setUpData(newfeedBlog: blog, searchText: searching ? homeSearchBarTextField.text : nil)
         return newsfeedCell
     }
 
