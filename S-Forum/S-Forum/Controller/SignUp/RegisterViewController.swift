@@ -55,11 +55,21 @@ class RegisterViewController: BaseViewController {
                 do {
                     let _ = try await Repository.regiter(email: email, password: password)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {}
+                    let registerSuccessView = RegisterSuccessViewController()
+                    registerSuccessView.modalPresentationStyle = .overFullScreen
+                    registerSuccessView.modalTransitionStyle = .coverVertical
+                    setUpLoadView(isHidden: true)
+                    loadingButtonActivityIndicatorView.stopAnimating()
+                    self.present(registerSuccessView, animated: false, completion: nil)
                 } catch {
                     DispatchQueue.main.async {
                         self.setUpLoadView(isHidden: true)
                         self.loadingButtonActivityIndicatorView.stopAnimating()
                     }
+                    let registerErrorView = RegisterErrorViewController()
+                    registerErrorView.modalPresentationStyle = .overFullScreen
+                    registerErrorView.modalTransitionStyle = .coverVertical
+                    self.present(registerErrorView, animated: false, completion: nil)
                     print(error.localizedDescription)
                 }
             }
@@ -67,7 +77,6 @@ class RegisterViewController: BaseViewController {
             setUpLoadView(isHidden: true)
             loadingButtonActivityIndicatorView.stopAnimating()
         }
-
     }
     
     override func viewDidLoad() {

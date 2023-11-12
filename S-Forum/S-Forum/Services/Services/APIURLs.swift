@@ -11,4 +11,5 @@ struct APIURLs {
     static let baseURL = "https://capstone-be-deploy-production.up.railway.app/api"
     static let login = baseURL + "/auth/login"
     static let regiter = baseURL + "/auth/register"
+    static let userInfomation = baseURL + "/users/me"
 }

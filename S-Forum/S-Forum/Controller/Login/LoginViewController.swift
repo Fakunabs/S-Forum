@@ -36,7 +36,7 @@ class LoginViewController: BaseViewController {
                            let homeViewController = homeNavController.viewControllers.first as? HomeViewController {
                             homeViewController.updateUserInfo()
                         }
-                        self.navigationController?.pushViewController(tabController, animated: true)
+                    self.navigationController?.pushViewController(tabController, animated: true)
                 } catch {
                     DispatchQueue.main.async {
                         self.setUpLoadView(isHidden: true)
@@ -145,9 +145,7 @@ extension LoginViewController {
     private func checkPasswordStrength(password: String) {
         if password.count < 8 {
             passwordErrorMessageLabel.text = "Required at least 8 characters"
-        } else if !password.containsNumber {
-            passwordErrorMessageLabel.text = "Required contain a number"
-        } else {
+        } /*else if !password.containsNumber { passwordErrorMessageLabel.text = "Required contain a number" }*/ else {
             passwordErrorMessageLabel.text = "Not contain special char"
         }
     }

@@ -9,22 +9,43 @@ import Foundation
 import Alamofire
 
 class Repository {
+    
+    // Hàm đăng nhập
     static func login(email: String, password: String) async throws -> User? {
         let body: [String: String] = [
             "email": email,
             "password": password
         ]
         do {
-            let data: LoginResponse = try await APIService.shareInitial.requestAPIData(from: APIURLs.login, parameters: body, method: .post, headers: [
+            let loginResponse: LoginResponse = try await APIService.shareInitial.requestAPIData(from: APIURLs.login, parameters: body, method: .post, headers: [
                 "Content-Type": "application/json"])
-            let user = data.user
+            AuthenticationManager.shared.cache(accessToken: loginResponse.token) // lưu token vào máy
+            let result = try await getUserInfomation() // lưu thông tin user
+            return result
+        } catch {
+            throw error
+        }
+    }
+
+    static func getUserInfomation() async throws -> User? {
+        do {
+            let headers: HTTPHeaders?
+            if let token = AuthenticationManager.shared.accessToken {
+                headers = [
+                    "Authorization": "Bearer \(token)"
+                ]
+            } else {
+                headers = nil
+            }
+            
+            let user: User = try await APIService.shareInitial.requestAPIData(from: APIURLs.userInfomation, parameters: nil, method: .get, headers: headers)
             AuthenticationManager.shared.cache(user: user)
-            AuthenticationManager.shared.cache(accessToken: data.token)
             return user
         } catch {
             throw error
         }
     }
+
     
     static func regiter(email: String, password: String) async throws -> RegisterResponse? {
         let body: [String: String] = [
@@ -52,7 +73,6 @@ class Repository {
             throw error
         }
     }
-    
     
 }
 
