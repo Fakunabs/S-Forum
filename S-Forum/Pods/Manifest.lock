@@ -18,6 +18,7 @@ PODS:
   - SDWebImage (5.15.8):
     - SDWebImage/Core (= 5.15.8)
   - SDWebImage/Core (5.15.8)
+  - SkeletonView (1.30.4)
   - SwiftLint (0.53.0)
 
 DEPENDENCIES:
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - FirebaseCore
   - IQKeyboardManagerSwift
   - SDWebImage (~> 5.0)
+  - SkeletonView
   - SwiftLint
 
 SPEC REPOS:
@@ -40,6 +42,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - PromisesObjC
     - SDWebImage
+    - SkeletonView
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -52,8 +55,9 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c7955c0bdbf7b2eb29bb7daaa44e3d90f55a9a85
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   SDWebImage: cb032eba469c54e0000e78bcb0a13cdde0a52798
+  SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
   SwiftLint: 5ce4d6a8ff83f1b5fd5ad5dbf30965d35af65e44
 
-PODFILE CHECKSUM: efc4ff1c9fb43ecc050e3fae2cda3dba5abb24ac
+PODFILE CHECKSUM: b6f4386dc6f63bc1905cb2ecf6f9c9cba4c867f9
 
 COCOAPODS: 1.14.2

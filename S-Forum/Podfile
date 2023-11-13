@@ -13,6 +13,7 @@ target 'S-Forum' do
   pod 'DropDown', '2.3.2'
   pod 'FirebaseCore'
   pod 'BetterSegmentedControl', '~> 2.0'
+  pod 'SkeletonView'
 end
 
 post_install do |installer|
