@@ -25,4 +25,8 @@ struct AppImages {
     static let tempImage2 = UIImage(named: "temp-image2")
     static let tempImage3 = UIImage(named: "temp-image3")
     static let userDefaultAvatar = UIImage(named: "user-default-avatar")
+    static let newestIcon = UIImage(named: "newest-icon")
+    static let popularIcon = UIImage(named: "popular-icon")
+    static let selectedRadioButton = UIImage(named: "icon-gender-selected-radio-button")
+    static let defaultRadioButton = UIImage(named: "icon-gender-radio-button")
 }

@@ -10,14 +10,9 @@ import Network
 
 class BaseViewController: UIViewController {
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        monitorNetwork()
-    }
-
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
         monitorNetwork()
     }
 
@@ -26,7 +21,7 @@ class BaseViewController: UIViewController {
         monitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
                 DispatchQueue.main.async {
-                    print("Connected")
+                    self.dismiss(animated: false)
                 }
             } else {
                 DispatchQueue.main.async {
