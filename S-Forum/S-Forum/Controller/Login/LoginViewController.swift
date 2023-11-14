@@ -30,13 +30,10 @@ class LoginViewController: BaseViewController {
             Task {
                 do {
                     let _ = try await Repository.login(email: email, password: password)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {}
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                         let tabController = TabController()
-                        if let homeNavController = tabController.viewControllers?.first as? UINavigationController,
-                           let homeViewController = homeNavController.viewControllers.first as? HomeViewController {
-                            homeViewController.updateUserInfo()
-                        }
-                    self.navigationController?.pushViewController(tabController, animated: true)
+                        self.navigationController?.pushViewController(tabController, animated: true)
+                    }
                 } catch {
                     DispatchQueue.main.async {
                         self.setUpLoadView(isHidden: true)
