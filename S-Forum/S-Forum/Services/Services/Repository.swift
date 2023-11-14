@@ -26,7 +26,7 @@ class Repository {
             throw error
         }
     }
-
+    
     static func getUserInfomation() async throws -> User? {
         do {
             let headers: HTTPHeaders?
@@ -45,7 +45,7 @@ class Repository {
             throw error
         }
     }
-
+    
     
     static func regiter(email: String, password: String) async throws -> RegisterResponse? {
         let body: [String: String] = [
@@ -66,7 +66,7 @@ class Repository {
             "email": email,
         ]
         do {
-            let data : ForgotPasswordResponse = try await APIService.shareInitial.requestAPIData(from: APIURLs.regiter, parameters: body, method: .post, headers: [
+            let data : ForgotPasswordResponse = try await APIService.shareInitial.requestAPIData(from: APIURLs.forgotPassword, parameters: body, method: .post, headers: [
                 "Content-Type": "application/json"])
             return data
         } catch {
@@ -74,6 +74,43 @@ class Repository {
         }
     }
     
+    static func getNewestBlog() async throws -> [NewestBlog] {
+        do {
+            let data: NewestBlogResponse = try await APIService.shareInitial.requestAPIData(from: APIURLs.newestBlog, parameters: nil, method: .get, headers: nil)
+            let listNewestBlogs: [NewestBlog] = data.docs
+            return listNewestBlogs
+        } catch {
+            print(String(describing: error))
+        }
+        return []
+    }
+    
+    
+    
+    static func updateInformation(firstName: String, lastName: String, gender: Bool, dayOfBirth: String, phone: Int) async throws -> String {
+        let parameters: [String: Any] = [
+            "firstName": firstName,
+            "lastName": lastName,
+            "gender": gender,
+            "dayOfBirth": dayOfBirth,
+            "phone": phone
+        ]
+        do {
+            let headers: HTTPHeaders?
+            if let token = AuthenticationManager.shared.accessToken {
+                headers = [
+                    "Authorization": "Bearer \(token)",
+                    "Content-Type": "application/json"
+                ]
+            } else {
+                headers = nil
+            }
+            let data : UpdateInformationResponse = try await APIService.shareInitial.requestAPIData(from: APIURLs.updateUser, parameters: parameters, method: .put, headers: headers)
+            return data.message
+        } catch {
+            throw error
+        }
+    }
 }
 
 

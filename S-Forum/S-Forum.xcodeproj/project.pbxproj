@@ -22,7 +22,6 @@
 		1C2FC8692ADFD68D00BAD9CB /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2FC8672ADFD68D00BAD9CB /* ScheduleViewController.swift */; };
 		1C2FC86A2ADFD68D00BAD9CB /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C2FC8682ADFD68D00BAD9CB /* ScheduleViewController.xib */; };
 		1C2FC8702ADFE05900BAD9CB /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2FC86F2ADFE05900BAD9CB /* AppColors.swift */; };
-		1C3195942AF63DC900A01D3E /* NewFeedBlogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3195932AF63DC900A01D3E /* NewFeedBlogs.swift */; };
 		1C3195962AF758E300A01D3E /* AppValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3195952AF758E300A01D3E /* AppValidation.swift */; };
 		1C39B8AE2AFE0D2900F3AF32 /* LostConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C39B8AC2AFE0D2900F3AF32 /* LostConnectionViewController.swift */; };
 		1C39B8AF2AFE0D2900F3AF32 /* LostConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C39B8AD2AFE0D2900F3AF32 /* LostConnectionViewController.xib */; };
@@ -46,9 +45,15 @@
 		1C5B4BC72AE17DE700BD93E4 /* SourceSans3-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BB72AE17DE700BD93E4 /* SourceSans3-MediumItalic.ttf */; };
 		1C5B4BC82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B4BB82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf */; };
 		1C5E2DF32AF8FF5A0049E1BF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5E2DF22AF8FF5A0049E1BF /* String+Extension.swift */; };
+		1C6931322B00F0E800172361 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6931312B00F0E800172361 /* UIImageView+Extension.swift */; };
+		1C7280642B0346DA00D3E3CA /* UpdateInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7280632B0346DA00D3E3CA /* UpdateInformation.swift */; };
 		1C77C6782AEF648C00F9186B /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77C6762AEF648C00F9186B /* UserViewController.swift */; };
 		1C77C6792AEF648C00F9186B /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C77C6772AEF648C00F9186B /* UserViewController.xib */; };
 		1C77C67C2AEF6A1100F9186B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77C67B2AEF6A1100F9186B /* BaseViewController.swift */; };
+		1C860FF12B0087C2002ECA8A /* RegisterSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C860FEF2B0087C2002ECA8A /* RegisterSuccessViewController.swift */; };
+		1C860FF22B0087C2002ECA8A /* RegisterSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C860FF02B0087C2002ECA8A /* RegisterSuccessViewController.xib */; };
+		1C860FF72B00A08B002ECA8A /* RegisterErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C860FF52B00A08B002ECA8A /* RegisterErrorViewController.swift */; };
+		1C860FF82B00A08C002ECA8A /* RegisterErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C860FF62B00A08B002ECA8A /* RegisterErrorViewController.xib */; };
 		1C89AE2D2AEE1F480056B539 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C89AE2B2AEE1F480056B539 /* ForgotPasswordViewController.swift */; };
 		1C89AE2E2AEE1F480056B539 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C89AE2C2AEE1F480056B539 /* ForgotPasswordViewController.xib */; };
 		1C91A8B12AECC90A00FF9737 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C91A8AF2AECC90A00FF9737 /* LoginViewController.swift */; };
@@ -78,8 +83,16 @@
 		1CA6C5C72AFB54980097806C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA6C5C62AFB54980097806C /* User.swift */; };
 		1CA6C5CA2AFB64CD0097806C /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA6C5C92AFB64CD0097806C /* AuthenticationManager.swift */; };
 		1CA6C5CC2AFB65360097806C /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA6C5CB2AFB65360097806C /* AppConstants.swift */; };
+		1CA863A32B01391C00AC3566 /* NewestBlog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA863A22B01391C00AC3566 /* NewestBlog.swift */; };
+		1CA863A82B02502C00AC3566 /* PopularFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA863A62B02502C00AC3566 /* PopularFeedTableViewCell.swift */; };
+		1CA863A92B02502C00AC3566 /* PopularFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CA863A72B02502C00AC3566 /* PopularFeedTableViewCell.xib */; };
+		1CA863AB2B02579B00AC3566 /* PopularBlog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA863AA2B02579B00AC3566 /* PopularBlog.swift */; };
+		1CA863AF2B0279FF00AC3566 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA863AD2B0279FF00AC3566 /* EditProfileViewController.swift */; };
+		1CA863B02B0279FF00AC3566 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CA863AE2B0279FF00AC3566 /* EditProfileViewController.xib */; };
 		1CB16DD92AFF3132002CBC0D /* SpinnerLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB16DD82AFF3132002CBC0D /* SpinnerLoadingView.swift */; };
 		1CB410AA2AEE052100703D37 /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB410A92AEE052100703D37 /* AppFonts.swift */; };
+		1CD013A62B00CF5F00ABB6AF /* ForgotPasswordSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD013A42B00CF5F00ABB6AF /* ForgotPasswordSuccessViewController.swift */; };
+		1CD013A72B00CF5F00ABB6AF /* ForgotPasswordSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CD013A52B00CF5F00ABB6AF /* ForgotPasswordSuccessViewController.xib */; };
 		1CD45D6B2AF60E5700523FA4 /* APIURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD45D6A2AF60E5700523FA4 /* APIURLs.swift */; };
 		1CD45D6D2AF60EBC00523FA4 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD45D6C2AF60EBC00523FA4 /* Repository.swift */; };
 		1CD45D6F2AF60ED700523FA4 /* APiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD45D6E2AF60ED700523FA4 /* APiService.swift */; };
@@ -125,7 +138,6 @@
 		1C2FC8672ADFD68D00BAD9CB /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		1C2FC8682ADFD68D00BAD9CB /* ScheduleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleViewController.xib; sourceTree = "<group>"; };
 		1C2FC86F2ADFE05900BAD9CB /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
-		1C3195932AF63DC900A01D3E /* NewFeedBlogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedBlogs.swift; sourceTree = "<group>"; };
 		1C3195952AF758E300A01D3E /* AppValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppValidation.swift; sourceTree = "<group>"; };
 		1C39B8AC2AFE0D2900F3AF32 /* LostConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostConnectionViewController.swift; sourceTree = "<group>"; };
 		1C39B8AD2AFE0D2900F3AF32 /* LostConnectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LostConnectionViewController.xib; sourceTree = "<group>"; };
@@ -149,9 +161,15 @@
 		1C5B4BB72AE17DE700BD93E4 /* SourceSans3-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-MediumItalic.ttf"; sourceTree = "<group>"; };
 		1C5B4BB82AE17DE700BD93E4 /* SourceSans3-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-ExtraBold.ttf"; sourceTree = "<group>"; };
 		1C5E2DF22AF8FF5A0049E1BF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		1C6931312B00F0E800172361 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		1C7280632B0346DA00D3E3CA /* UpdateInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInformation.swift; sourceTree = "<group>"; };
 		1C77C6762AEF648C00F9186B /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		1C77C6772AEF648C00F9186B /* UserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
 		1C77C67B2AEF6A1100F9186B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		1C860FEF2B0087C2002ECA8A /* RegisterSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSuccessViewController.swift; sourceTree = "<group>"; };
+		1C860FF02B0087C2002ECA8A /* RegisterSuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterSuccessViewController.xib; sourceTree = "<group>"; };
+		1C860FF52B00A08B002ECA8A /* RegisterErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterErrorViewController.swift; sourceTree = "<group>"; };
+		1C860FF62B00A08B002ECA8A /* RegisterErrorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterErrorViewController.xib; sourceTree = "<group>"; };
 		1C89AE2B2AEE1F480056B539 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		1C89AE2C2AEE1F480056B539 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		1C91A8AF2AECC90A00FF9737 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -181,8 +199,16 @@
 		1CA6C5C62AFB54980097806C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1CA6C5C92AFB64CD0097806C /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		1CA6C5CB2AFB65360097806C /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		1CA863A22B01391C00AC3566 /* NewestBlog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewestBlog.swift; sourceTree = "<group>"; };
+		1CA863A62B02502C00AC3566 /* PopularFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularFeedTableViewCell.swift; sourceTree = "<group>"; };
+		1CA863A72B02502C00AC3566 /* PopularFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularFeedTableViewCell.xib; sourceTree = "<group>"; };
+		1CA863AA2B02579B00AC3566 /* PopularBlog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularBlog.swift; sourceTree = "<group>"; };
+		1CA863AD2B0279FF00AC3566 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		1CA863AE2B0279FF00AC3566 /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 		1CB16DD82AFF3132002CBC0D /* SpinnerLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerLoadingView.swift; sourceTree = "<group>"; };
 		1CB410A92AEE052100703D37 /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
+		1CD013A42B00CF5F00ABB6AF /* ForgotPasswordSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordSuccessViewController.swift; sourceTree = "<group>"; };
+		1CD013A52B00CF5F00ABB6AF /* ForgotPasswordSuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordSuccessViewController.xib; sourceTree = "<group>"; };
 		1CD45D6A2AF60E5700523FA4 /* APIURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURLs.swift; sourceTree = "<group>"; };
 		1CD45D6C2AF60EBC00523FA4 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		1CD45D6E2AF60ED700523FA4 /* APiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APiService.swift; sourceTree = "<group>"; };
@@ -264,6 +290,8 @@
 		1C2FC84C2ADFCA4900BAD9CB /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				1CD013A32B00CF3500ABB6AF /* ForgotPasswordSuccessView */,
+				1C860FEE2B008772002ECA8A /* RegisterSuccessView */,
 				1C39B8AB2AFE0CF700F3AF32 /* LostConnectionView */,
 				1C4658FE2AFD3598005B413A /* ErrorView */,
 				1C77C67B2AEF6A1100F9186B /* BaseViewController.swift */,
@@ -312,6 +340,7 @@
 				1C2FC85F2ADFCE6700BAD9CB /* UIColor+Extension.swift */,
 				1C5721972AF1792E001D569E /* UIApplication+Extension.swift */,
 				1C5E2DF22AF8FF5A0049E1BF /* String+Extension.swift */,
+				1C6931312B00F0E800172361 /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -319,8 +348,10 @@
 		1C2FC8512ADFCAA500BAD9CB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1C3195932AF63DC900A01D3E /* NewFeedBlogs.swift */,
 				1CA6C5C62AFB54980097806C /* User.swift */,
+				1CA863A22B01391C00AC3566 /* NewestBlog.swift */,
+				1CA863AA2B02579B00AC3566 /* PopularBlog.swift */,
+				1C7280632B0346DA00D3E3CA /* UpdateInformation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -346,7 +377,8 @@
 		1C2FC8542ADFCAFE00BAD9CB /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				1CB54A082AE250C30014B97B /* Newsfeed */,
+				1CA863A42B024F7200AC3566 /* PopularBlogs */,
+				1CB54A082AE250C30014B97B /* NewestBlogs */,
 				1C2FC8632ADFD67600BAD9CB /* HomeViewController.swift */,
 				1C2FC8642ADFD67600BAD9CB /* HomeViewController.xib */,
 			);
@@ -399,8 +431,8 @@
 		1C4658FE2AFD3598005B413A /* ErrorView */ = {
 			isa = PBXGroup;
 			children = (
-				1C4658FF2AFD35C3005B413A /* LoginErrorViewController.swift */,
-				1C4659002AFD35C3005B413A /* LoginErrorViewController.xib */,
+				1C860FF42B00A020002ECA8A /* Register */,
+				1C860FF32B00A012002ECA8A /* Login */,
 			);
 			path = ErrorView;
 			sourceTree = "<group>";
@@ -408,10 +440,38 @@
 		1C77C67A2AEF649100F9186B /* User */ = {
 			isa = PBXGroup;
 			children = (
+				1CA863AC2B02765A00AC3566 /* EditProfile */,
 				1C77C6762AEF648C00F9186B /* UserViewController.swift */,
 				1C77C6772AEF648C00F9186B /* UserViewController.xib */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		1C860FEE2B008772002ECA8A /* RegisterSuccessView */ = {
+			isa = PBXGroup;
+			children = (
+				1C860FEF2B0087C2002ECA8A /* RegisterSuccessViewController.swift */,
+				1C860FF02B0087C2002ECA8A /* RegisterSuccessViewController.xib */,
+			);
+			path = RegisterSuccessView;
+			sourceTree = "<group>";
+		};
+		1C860FF32B00A012002ECA8A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1C4658FF2AFD35C3005B413A /* LoginErrorViewController.swift */,
+				1C4659002AFD35C3005B413A /* LoginErrorViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1C860FF42B00A020002ECA8A /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				1C860FF52B00A08B002ECA8A /* RegisterErrorViewController.swift */,
+				1C860FF62B00A08B002ECA8A /* RegisterErrorViewController.xib */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 		1C91A8AC2AECC8CB00FF9737 /* Login */ = {
@@ -499,12 +559,38 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		1CB54A082AE250C30014B97B /* Newsfeed */ = {
+		1CA863A42B024F7200AC3566 /* PopularBlogs */ = {
+			isa = PBXGroup;
+			children = (
+				1CA863A52B024F7E00AC3566 /* cells */,
+			);
+			path = PopularBlogs;
+			sourceTree = "<group>";
+		};
+		1CA863A52B024F7E00AC3566 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				1CA863A62B02502C00AC3566 /* PopularFeedTableViewCell.swift */,
+				1CA863A72B02502C00AC3566 /* PopularFeedTableViewCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		1CA863AC2B02765A00AC3566 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				1CA863AD2B0279FF00AC3566 /* EditProfileViewController.swift */,
+				1CA863AE2B0279FF00AC3566 /* EditProfileViewController.xib */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		1CB54A082AE250C30014B97B /* NewestBlogs */ = {
 			isa = PBXGroup;
 			children = (
 				1CB54A0B2AE2513E0014B97B /* cells */,
 			);
-			path = Newsfeed;
+			path = NewestBlogs;
 			sourceTree = "<group>";
 		};
 		1CB54A0B2AE2513E0014B97B /* cells */ = {
@@ -514,6 +600,15 @@
 				1CDADFC02AE2656200765C7C /* NewsFeedTableViewCell.xib */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		1CD013A32B00CF3500ABB6AF /* ForgotPasswordSuccessView */ = {
+			isa = PBXGroup;
+			children = (
+				1CD013A42B00CF5F00ABB6AF /* ForgotPasswordSuccessViewController.swift */,
+				1CD013A52B00CF5F00ABB6AF /* ForgotPasswordSuccessViewController.xib */,
+			);
+			path = ForgotPasswordSuccessView;
 			sourceTree = "<group>";
 		};
 		1CD45D682AF60E2A00523FA4 /* API */ = {
@@ -662,11 +757,13 @@
 				1C5B4BBB2AE17DE700BD93E4 /* SourceSans3-Medium.ttf in Resources */,
 				1C91A8D02AECCFF000FF9737 /* Gilroy-ExtraBoldItalic.ttf in Resources */,
 				1C5B4BBF2AE17DE700BD93E4 /* SourceSans3-ExtraLight.ttf in Resources */,
+				1CA863A92B02502C00AC3566 /* PopularFeedTableViewCell.xib in Resources */,
 				1C91A8D62AECCFF000FF9737 /* Gilroy-SemiBoldItalic.ttf in Resources */,
 				1C91A8CD2AECCFF000FF9737 /* Gilroy-Thin.ttf in Resources */,
 				1C5B4BC62AE17DE700BD93E4 /* SourceSans3-Regular.ttf in Resources */,
 				1C91A8DA2AECCFF000FF9737 /* Gilroy-Regular.ttf in Resources */,
 				1C91A8D22AECCFF000FF9737 /* Gilroy-LightItalic.ttf in Resources */,
+				1CA863B02B0279FF00AC3566 /* EditProfileViewController.xib in Resources */,
 				1C5B4BC32AE17DE700BD93E4 /* SourceSans3-LightItalic.ttf in Resources */,
 				1C5B4BC12AE17DE700BD93E4 /* SourceSans3-ExtraLightItalic.ttf in Resources */,
 				1C91A8E02AED2BD500FF9737 /* RegisterViewController.xib in Resources */,
@@ -684,9 +781,11 @@
 				1C5B4BB92AE17DE700BD93E4 /* SourceSans3-Bold.ttf in Resources */,
 				1C91A8D12AECCFF000FF9737 /* Gilroy-RegularItalic.ttf in Resources */,
 				1C91A8CE2AECCFF000FF9737 /* Gilroy-Light.ttf in Resources */,
+				1CD013A72B00CF5F00ABB6AF /* ForgotPasswordSuccessViewController.xib in Resources */,
 				1C91A8CC2AECCFF000FF9737 /* Gilroy-ThinItalic.ttf in Resources */,
 				1C91A8D72AECCFF000FF9737 /* Gilroy-HeavyItalic.ttf in Resources */,
 				1C77C6792AEF648C00F9186B /* UserViewController.xib in Resources */,
+				1C860FF22B0087C2002ECA8A /* RegisterSuccessViewController.xib in Resources */,
 				1CDADFC22AE2656200765C7C /* NewsFeedTableViewCell.xib in Resources */,
 				1C91A8CA2AECCFF000FF9737 /* Gilroy-BlackItalic.ttf in Resources */,
 				1C89AE2E2AEE1F480056B539 /* ForgotPasswordViewController.xib in Resources */,
@@ -700,6 +799,7 @@
 				1C5B4BC52AE17DE700BD93E4 /* SourceSans3-SemiBold.ttf in Resources */,
 				1C5B4BBA2AE17DE700BD93E4 /* SourceSans3-ExtraBoldItalic.ttf in Resources */,
 				1C2FC86A2ADFD68D00BAD9CB /* ScheduleViewController.xib in Resources */,
+				1C860FF82B00A08C002ECA8A /* RegisterErrorViewController.xib in Resources */,
 				1C2334A82AD70BA4009027F6 /* Main.storyboard in Resources */,
 				1C91A8D32AECCFF000FF9737 /* Gilroy-UltraLight.ttf in Resources */,
 				1C91A8D92AECCFF000FF9737 /* Gilroy-UltraLightItalic.ttf in Resources */,
@@ -773,11 +873,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C3195942AF63DC900A01D3E /* NewFeedBlogs.swift in Sources */,
 				1CB16DD92AFF3132002CBC0D /* SpinnerLoadingView.swift in Sources */,
 				1C91A8B12AECC90A00FF9737 /* LoginViewController.swift in Sources */,
 				1C2FC85C2ADFCE4400BAD9CB /* NSObject+Extension.swift in Sources */,
 				1CA6C5C72AFB54980097806C /* User.swift in Sources */,
+				1CD013A62B00CF5F00ABB6AF /* ForgotPasswordSuccessViewController.swift in Sources */,
+				1C860FF12B0087C2002ECA8A /* RegisterSuccessViewController.swift in Sources */,
+				1CA863A82B02502C00AC3566 /* PopularFeedTableViewCell.swift in Sources */,
+				1CA863AB2B02579B00AC3566 /* PopularBlog.swift in Sources */,
 				1C2334A52AD70BA4009027F6 /* ViewController.swift in Sources */,
 				1CDADFC12AE2656200765C7C /* NewsFeedTableViewCell.swift in Sources */,
 				1CB410AA2AEE052100703D37 /* AppFonts.swift in Sources */,
@@ -798,10 +901,15 @@
 				1C2FC8592ADFCBB800BAD9CB /* TabController.swift in Sources */,
 				1C2FC8602ADFCE6700BAD9CB /* UIColor+Extension.swift in Sources */,
 				1CD45D6F2AF60ED700523FA4 /* APiService.swift in Sources */,
+				1CA863AF2B0279FF00AC3566 /* EditProfileViewController.swift in Sources */,
+				1C7280642B0346DA00D3E3CA /* UpdateInformation.swift in Sources */,
+				1CA863A32B01391C00AC3566 /* NewestBlog.swift in Sources */,
 				1C3195962AF758E300A01D3E /* AppValidation.swift in Sources */,
 				1C39B8AE2AFE0D2900F3AF32 /* LostConnectionViewController.swift in Sources */,
 				1C2334A12AD70BA4009027F6 /* AppDelegate.swift in Sources */,
 				1C2334A32AD70BA4009027F6 /* SceneDelegate.swift in Sources */,
+				1C860FF72B00A08B002ECA8A /* RegisterErrorViewController.swift in Sources */,
+				1C6931322B00F0E800172361 /* UIImageView+Extension.swift in Sources */,
 				1CD45D6B2AF60E5700523FA4 /* APIURLs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

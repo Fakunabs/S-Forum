@@ -7,14 +7,10 @@
 
 import UIKit
 import DropDown
+import SDWebImage
 
 class UserViewController: BaseViewController {
     
-    var newFeedBlogList : [NewFeedBlogs] = [
-        NewFeedBlogs(image: AppImages.tempImage1!, title: "The 4-step SEO framework that led to a 1000% increase in traffic. Let’s talk about blogging and SEO...", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
-        NewFeedBlogs(image: AppImages.tempImage2!, title: "OnePay - Online Payment Processing Web App - Download from uihut.com", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
-        NewFeedBlogs(image: AppImages.tempImage3!, title: "Designing User Interfaces - how I sold 1800 copies in a few months by Michal Malewicz", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
-    ]
     
     private let refreshControl = UIRefreshControl()
     private let userDropDown = DropDown()
@@ -26,7 +22,11 @@ class UserViewController: BaseViewController {
     @IBOutlet private weak var editProfileButton: UIButton!
     @IBOutlet private weak var dropDownView: UIView!
     @IBOutlet private weak var userScrollView: UIScrollView!
-    @IBOutlet private weak var userBlogTableView: UITableView!
+    @IBOutlet private weak var avatarNavbarImageView: UIImageView!
+    @IBOutlet private weak var userNameLabel: UILabel!
+    @IBOutlet private weak var userGenderLabel: UILabel!
+    @IBOutlet private weak var userDateOfBirthLabel: UILabel!
+    @IBOutlet private weak var userPhoneLabel: UILabel!
     
     @IBAction private func didTapReturnAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -43,12 +43,22 @@ class UserViewController: BaseViewController {
         }
     }
     
+    
+    @IBAction func didTapEditProfileAction(_ sender: Any) {
+        let editProfile = EditProfileViewController()
+        editProfile.modalPresentationStyle = .overFullScreen
+        editProfile.modalTransitionStyle = .coverVertical
+        editProfile.delegate = self
+        self.present(editProfile, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configCornerRadius()
         configDropDown()
         reloadScrollView()
-        configTableView()
+        configCornerRadiusImage()
+        getUserInfomation()
     }
 }
 
@@ -61,12 +71,6 @@ extension UserViewController {
         avatarUserImageView.clipsToBounds = true
     }
     
-    private func configTableView() {
-        userBlogTableView.separatorStyle = .none
-        userBlogTableView.dataSource = self
-        userBlogTableView.delegate = self
-        userBlogTableView.register(UINib(nibName: NewsFeedTableViewCell.className, bundle: nil), forCellReuseIdentifier: NewsFeedTableViewCell.className)
-    }
     
     
     private func configDropDown() {
@@ -80,27 +84,72 @@ extension UserViewController {
         userDropDown.textFont = AppFonts.fontGilroyMedium(size: 15)!
     }
     
+    private func configCornerRadiusImage() {
+        avatarUserImageView.circle()
+        avatarNavbarImageView.circle()
+    }
+    
     private func reloadScrollView() {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         userScrollView.addSubview(refreshControl)
+        
     }
     
     @objc private func refreshData() {
+        getUserInfomation()
         refreshControl.endRefreshing()
     }
 }
 
-extension UserViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newFeedBlogList.count
+extension UserViewController {
+    private func getUserInfomation() {
+        Task {
+            guard let user = try await Repository.getUserInfomation() else { return }
+            avatarUserImageView.sd_setImage(with: URL(string: user.profileImage ?? ""), placeholderImage: UIImage(named: "user-default-avatar"), options: .continueInBackground, completed: nil)
+            avatarNavbarImageView.sd_setImage(with: URL(string: user.profileImage ?? ""), placeholderImage: UIImage(named: "user-default-avatar"), options: .continueInBackground, completed: nil)
+            let firstName = user.firstName ?? ""
+            let lastName = user.lastName ?? ""
+            userNameLabel.text = lastName + " " + firstName
+            
+            
+            if let gender = user.gender {
+                userGenderLabel.text = gender ? "MALE" : "FEMALE"
+            } else {
+                userGenderLabel.text = "unavailable"
+            }
+            // Date of Birth
+            if let dayOfBirth = user.dayOfBirth {
+                userDateOfBirthLabel.text = convertDateTimeFromMongoDBToSwift(dayOfBirth)
+            } else {
+                userDateOfBirthLabel.text = "unavailable"
+            }
+            // Phone number
+            if let phone = user.phone {
+                userPhoneLabel.text = String(phone)
+            } else {
+                userPhoneLabel.text = ""
+            }
+        }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let userBlogFeed = userBlogTableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.className, for: indexPath) as? NewsFeedTableViewCell else {return UITableViewCell()}
-        return userBlogFeed
+    func getBlogOwnerUserInfomation() {
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("a")
+    private func convertDateTimeFromMongoDBToSwift(_ dayOfBirth: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        
+        if let date = dateFormatter.date(from: dayOfBirth) {
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            return dateFormatter.string(from: date)
+        } else {
+            return "Invalid Date"
+        }
+    }
+}
+
+extension UserViewController: EditProfileViewControllerDelegate {
+    func didTapSaveReloadDataInUserProfile() {
+        getUserInfomation()
     }
 }
