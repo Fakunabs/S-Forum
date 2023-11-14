@@ -10,7 +10,9 @@ import DropDown
 import SDWebImage
 import BetterSegmentedControl
 
+
 class HomeViewController: BaseViewController {
+    
     
     private let refreshControl = UIRefreshControl()
     private let homeDropDown = DropDown()
@@ -18,11 +20,7 @@ class HomeViewController: BaseViewController {
     private var searchingName = [String]()
     private var searching = false
     
-    var newFeedBlogList : [NewFeedBlogs] = [
-        NewFeedBlogs(image: AppImages.tempImage1!, title: "The 4-step SEO framework framework led to a 1000% increase in traffic. Let’s talk about blogging and SEO...", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
-        NewFeedBlogs(image: AppImages.tempImage2!, title: "OnePay - Online Payment Processing Web App - Download from uihut.com", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
-        NewFeedBlogs(image: AppImages.tempImage3!, title: "Designing User Interfaces - how I sold 1800 copies in a few months by Michal Malewicz", author: "Thinh", firstHastag: "crypto", secondHastag: "finance", thirdHastag: "bitcoin", like: "50 like", dislike: "20 dislike", comments: "3 comments"),
-    ]
+    var newFeedBlogList : [NewestBlog] = []
     
     @IBOutlet private weak var homeSegmentControl: UISegmentedControl!
     @IBOutlet private weak var statusView: UIView!
@@ -33,6 +31,8 @@ class HomeViewController: BaseViewController {
     @IBOutlet private weak var dropDownButton: UIButton!
     @IBOutlet private weak var dropDownView: UIView!
     @IBOutlet private weak var homeSearchBarTextField: UITextField!
+    @IBOutlet private weak var statusAvatarImage: UIImageView!
+    
     
     @IBAction private func didTapedDropDownAction(_ sender: Any) {
         homeDropDown.show()
@@ -42,6 +42,8 @@ class HomeViewController: BaseViewController {
                 let userViewController = UserViewController()
                 self.navigationController?.pushViewController(userViewController, animated: true)
             case "Logout":
+                AuthenticationManager.shared.cleanCache()
+                newsFeedTableView.reloadData()
                 self.tabBarController?.dismiss(animated: false, completion: nil)
                 let loginViewController = LoginViewController()
                 let navigationController = UINavigationController(rootViewController: loginViewController)
@@ -57,11 +59,7 @@ class HomeViewController: BaseViewController {
         if let searchText = sender.text?.trimmingCharacters(in: .whitespacesAndNewlines), !searchText.isEmpty {
             searchingName = newFeedBlogList.filter { blog in
                 let titleMatch = blog.title.localizedCaseInsensitiveContains(searchText)
-                let authorMatch = blog.author.localizedCaseInsensitiveContains(searchText)
-                let hashtagMatch = blog.firstHastag.localizedCaseInsensitiveContains(searchText) ||
-                blog.secondHastag.localizedCaseInsensitiveContains(searchText) ||
-                blog.thirdHastag.localizedCaseInsensitiveContains(searchText)
-                return titleMatch || authorMatch || hashtagMatch
+                return titleMatch
             }.map { $0.title }
             searching = true
         } else {
@@ -84,6 +82,8 @@ class HomeViewController: BaseViewController {
         configTableView()
         configDropDown()
         updateUserInfo()
+        configCornerRadiusImage()
+        getNewestBlogs()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,6 +101,7 @@ extension HomeViewController {
         newsFeedTableView.dataSource = self
         newsFeedTableView.delegate = self
         newsFeedTableView.register(UINib(nibName: NewsFeedTableViewCell.className, bundle: nil), forCellReuseIdentifier: NewsFeedTableViewCell.className)
+        newsFeedTableView.register(UINib(nibName: PopularFeedTableViewCell.className, bundle: nil), forCellReuseIdentifier: PopularFeedTableViewCell.className)
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         newsFeedTableView.addSubview(refreshControl)
     }
@@ -125,7 +126,10 @@ extension HomeViewController {
         homeDropDown.textFont = AppFonts.fontGilroyMedium(size: 15)!
     }
     
-    
+    private func configCornerRadiusImage() {
+        avatarImage.circle()
+        statusAvatarImage.circle()
+    }
 }
 
 extension HomeViewController {
@@ -153,14 +157,14 @@ extension HomeViewController {
     }
 }
 
-extension HomeViewController: UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return searching ? searchingName.count : newFeedBlogList.count
         switch homeSegmentControl.selectedSegmentIndex {
         case 0:
             return searching ? searchingName.count : newFeedBlogList.count
         case 1:
-            return 1
+            return 5
         default:
             break
         }
@@ -168,12 +172,12 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let newsfeedCell = newsFeedTableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.className, for: indexPath) as? NewsFeedTableViewCell else {
-            return UITableViewCell()
-        }
+        guard let newsfeedCell = newsFeedTableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.className, for: indexPath) as? NewsFeedTableViewCell else { return UITableViewCell() }
+        guard let popularfeedCell = newsFeedTableView.dequeueReusableCell(withIdentifier: PopularFeedTableViewCell.className, for: indexPath) as? PopularFeedTableViewCell else { return UITableViewCell() }
+//        newsfeedCell.passDataDelegate = self
         switch homeSegmentControl.selectedSegmentIndex {
         case 0:
-            var blog: NewFeedBlogs?
+            var blog: NewestBlog?
             if searching {
                 if indexPath.row < searchingName.count {
                     let searchResult = newFeedBlogList.filter { $0.title.localizedCaseInsensitiveContains(searchingName[indexPath.row]) }
@@ -189,25 +193,45 @@ extension HomeViewController: UITableViewDataSource {
                 newsfeedCell.setUpData(newfeedBlog: blog, searchText: searching ? homeSearchBarTextField.text : nil)
             }
         case 1:
-            let blog = newFeedBlogList[indexPath.row]
-            newsfeedCell.setUpDataForTemp(newfeedBlog: blog)
+//            let blog = newFeedBlogList[indexPath.row]
+            print("a")
         default:
             break
         }
-        return newsfeedCell
+        return homeSegmentControl.selectedSegmentIndex == 0 ? newsfeedCell : popularfeedCell
     }
-
-}
-
-
-extension HomeViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
 }
 
+
+//extension HomeViewController: NewsFeedTableCellDelegate {
+//    func didTapUserDetail(user: UserID) {
+//        // Pass the userID to the UserViewController
+//        let userViewController = UserViewController()
+////        userViewController.userID = user
+//        userViewController.getBlogOwnerUserInfomation()
+//        self.navigationController?.pushViewController(userViewController, animated: true)
+//    }
+//}
+
+
+
 extension HomeViewController {
-    func updateUserInfo() {
+    private func updateUserInfo() {
         guard let user = AuthenticationManager.shared.user else { return }
-        avatarImage.sd_setImage(with: URL(string: user.profileImage ?? "user-default-avatar"), placeholderImage: UIImage(named: "user-default-avatar"), options: .continueInBackground, completed: nil)
+        avatarImage.sd_setImage(with: URL(string: user.profileImage ?? ""), placeholderImage: UIImage(named: "user-default-avatar"), options: .continueInBackground, completed: nil)
+        statusAvatarImage.sd_setImage(with: URL(string: user.profileImage ?? ""), placeholderImage: UIImage(named: "user-default-avatar"), options: .continueInBackground, completed: nil)
+    }
+    
+    private func getNewestBlogs() {
+        Task {
+            let result = try await Repository.getNewestBlog()
+            newFeedBlogList = result
+            DispatchQueue.main.async { [weak self] in
+                self?.newsFeedTableView.reloadData()
+            }
+        }
     }
 }
