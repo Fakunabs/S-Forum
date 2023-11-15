@@ -77,14 +77,43 @@ class Repository {
     static func getNewestBlog() async throws -> [NewestBlog] {
         do {
             let data: NewestBlogResponse = try await APIService.shareInitial.requestAPIData(from: APIURLs.newestBlog, parameters: nil, method: .get, headers: nil)
-            let listNewestBlogs: [NewestBlog] = data.docs
-            return listNewestBlogs
+            let listNewestblogs : [NewestBlog] = data.docs
+            return listNewestblogs
         } catch {
             print(String(describing: error))
         }
         return []
     }
     
+    static func getPopularBlog() async throws -> [PopularBlog] {
+        do {
+            let data: PopularBlogResponse = try await APIService.shareInitial.requestAPIData(from: APIURLs.popularBlog, parameters: nil, method: .get, headers: nil)
+            let listPopularBlogs: [PopularBlog] = data.docs
+            return listPopularBlogs
+        } catch {
+            print(String(describing: error))
+        }
+        return []
+    }
+    
+    static func getUserBlogs() async throws -> [UserBlog] {
+        do {
+            let headers: HTTPHeaders?
+            if let token = AuthenticationManager.shared.accessToken {
+                headers = [
+                    "Authorization": "Bearer \(token)"
+                ]
+            } else {
+                headers = nil
+            }
+            let data: UserBlogResponse = try await APIService.shareInitial.requestAPIData(from: APIURLs.userBlog, parameters: nil, method: .get, headers: headers)
+            let listUserBlogs: [UserBlog] = data.docs
+            return listUserBlogs
+        } catch {
+            print(String(describing: error))
+        }
+        return []
+    }
     
     
     static func updateInformation(firstName: String, lastName: String, gender: Bool, dayOfBirth: String, phone: Int) async throws -> String {

@@ -29,4 +29,5 @@ struct AppImages {
     static let popularIcon = UIImage(named: "popular-icon")
     static let selectedRadioButton = UIImage(named: "icon-gender-selected-radio-button")
     static let defaultRadioButton = UIImage(named: "icon-gender-radio-button")
+    static let blogImageSgroupLogoIcon = UIImage(named: "icon-image-not-found-free-vector")
 }

@@ -19,4 +19,5 @@ struct APIURLs {
     static let newestBlog = baseURL + "/blogs/newest"
     static let popularBlog = baseURL + "/blogs/popular"
     static let updateUser = baseURL + "/users/" + (AuthenticationManager.shared.user?.id ?? "Error")
+    static let userBlog = baseURL + "/users/" + (AuthenticationManager.shared.user?.id ?? "Error") + "/blogs"
 }

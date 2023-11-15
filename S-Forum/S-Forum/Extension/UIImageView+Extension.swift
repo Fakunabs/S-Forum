@@ -9,9 +9,13 @@ import UIKit
 
 extension UIImageView {
 
-   func circle() {
-       layer.masksToBounds = false
-       layer.cornerRadius = self.frame.height / 2
-       clipsToBounds = true
-   }
+    func circle() {
+        layer.masksToBounds = false
+        layer.cornerRadius = self.frame.height / 2
+        clipsToBounds = true
+    }
+    
+    func blogImageCornerRadius() {
+        layer.cornerRadius = 10
+    }
 }

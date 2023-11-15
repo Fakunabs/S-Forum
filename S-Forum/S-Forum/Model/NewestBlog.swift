@@ -21,22 +21,34 @@ struct NewestBlogResponse: Codable {
 struct NewestBlog: Codable {
     let id: String?
     let userID: UserID?
+    let category: Category?
     let title: String!
     let content: String?
-    let blogImage: [JSONAny]?
-    let status: Status?
+    let blogImage: [String]?
+    let status: String?
+    let reactionCount: Int?
     let deleted: Bool?
     let reaction: [Reaction]?
     let createdAt, updatedAt: String?
     let v: Int?
-    let category: String?
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case userID = "userId"
-        case title, content, blogImage, status, deleted, reaction, createdAt, updatedAt
+        case category, title, content, blogImage, status, reactionCount, deleted, reaction, createdAt, updatedAt
         case v = "__v"
-        case category
+    }
+}
+
+
+// MARK: - Category
+struct Category: Codable {
+    let id, name, status, slug: String?
+    let createdAt, updatedAt: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name, status, slug, createdAt, updatedAt
     }
 }
 

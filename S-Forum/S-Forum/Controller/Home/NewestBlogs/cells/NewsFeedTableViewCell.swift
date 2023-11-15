@@ -8,14 +8,9 @@
 import UIKit
 import SDWebImage
 
-//protocol NewsFeedTableCellDelegate: AnyObject {
-//    func didTapUserDetail(user: UserID)
-//}
 
 class NewsFeedTableViewCell: UITableViewCell {
     
-//    var userID: UserID?
-//    weak var passDataDelegate: NewsFeedTableCellDelegate?
     
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var blogImageView: UIImageView!
@@ -32,9 +27,6 @@ class NewsFeedTableViewCell: UITableViewCell {
     
     
     @IBAction func didTapToUserDetailAction(_ sender: Any) {
-//        if let userID = userID {
-//            passDataDelegate?.didTapUserDetail(user: userID)
-//        }
         
     }
     
@@ -46,24 +38,52 @@ class NewsFeedTableViewCell: UITableViewCell {
     private func configRadius() {
         containerView.layer.cornerRadius = 10
         avatarBlogImageView.circle()
+        blogImageView.blogImageCornerRadius()
     }
 }
 
 extension NewsFeedTableViewCell {
-    func setUpData(newfeedBlog: NewestBlog, searchText: String?) {
-//        userID = newfeedBlog.userID
+    func setUpDataNewestBlogs(newfeedBlog: NewestBlog, searchText: String?) {
         if let searchText = searchText, !searchText.isEmpty {
             let titleAttributedString = highlightTextInString(newfeedBlog.title ?? "Error Content", searchText: searchText)
             contentLabel.attributedText = titleAttributedString
         } else {
             contentLabel.text = newfeedBlog.title
         }
-//        blogImageView.sd_setImage(with: URL(string: newfeedBlog.blogImage ?? ""), placeholderImage: AppImages.tempImage1, options: .continueInBackground, completed: nil)
+        if let blogImages = newfeedBlog.blogImage, !blogImages.isEmpty {
+            if let firstImageURL = URL(string: blogImages[0]) {
+                blogImageView.sd_setImage(with: firstImageURL, placeholderImage: AppImages.blogImageSgroupLogoIcon, options: .continueInBackground, completed: nil)
+            } else {
+                blogImageView.image = AppImages.blogImageSgroupLogoIcon
+            }
+        } else {
+            blogImageView.image = AppImages.blogImageSgroupLogoIcon
+        }
         authorLabel.text = (newfeedBlog.userID?.firstName ?? "Error") + " " + (newfeedBlog.userID?.lastName ?? "")
         avatarBlogImageView.sd_setImage(with: URL(string: newfeedBlog.userID?.profileImage ?? ""), placeholderImage: UIImage(named: "user-default-avatar"), options: .continueInBackground, completed: nil)
         createdDayLabel.text = convertDateTimeFromMongoDBToSwift(newfeedBlog.createdAt ?? "Error Day")
         numberOfLikeLabel.text = "\(countReactions(reactions: newfeedBlog.reaction, reactionType: "like"))"
         numberOfDislikeLabel.text = "\(countReactions(reactions: newfeedBlog.reaction, reactionType: "dislike"))"
+        
+    }
+    
+    func setUpDataUserBlogs(userBlog: UserBlog) {
+        
+        contentLabel.text = userBlog.title
+        if let blogImages = userBlog.blogImage, !blogImages.isEmpty {
+            if let firstImageURL = URL(string: blogImages[0]) {
+                blogImageView.sd_setImage(with: firstImageURL, placeholderImage: AppImages.blogImageSgroupLogoIcon, options: .continueInBackground, completed: nil)
+            } else {
+                blogImageView.image = AppImages.blogImageSgroupLogoIcon
+            }
+        } else {
+            blogImageView.image = AppImages.blogImageSgroupLogoIcon
+        }
+        authorLabel.text = (userBlog.userID?.firstName ?? "Error") + " " + (userBlog.userID?.lastName ?? "")
+        avatarBlogImageView.sd_setImage(with: URL(string: userBlog.userID?.profileImage ?? ""), placeholderImage: UIImage(named: "user-default-avatar"), options: .continueInBackground, completed: nil)
+        createdDayLabel.text = convertDateTimeFromMongoDBToSwift(userBlog.createdAt ?? "Error Day")
+        numberOfLikeLabel.text = "\(countReactions(reactions: userBlog.reaction, reactionType: "like"))"
+        numberOfDislikeLabel.text = "\(countReactions(reactions: userBlog.reaction, reactionType: "dislike"))"
         
     }
     

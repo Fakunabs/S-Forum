@@ -1,27 +1,25 @@
 //
-//  PopularBlog.swift
+//  UserBlog.swift
 //  S-Forum
 //
-//  Created by Fakunabs on 13/11/2023.
+//  Created by Fakunabs on 14/11/2023.
 //
 
 import Foundation
 
-// MARK: - NewestBlogResponse
-struct PopularBlogResponse: Codable {
-    let docs: [PopularBlog]
+// MARK: - PopularBlogResponse
+struct UserBlogResponse: Codable {
+    let docs: [UserBlog]
     let totalDocs, limit, totalPages, page: Int?
     let pagingCounter: Int?
     let hasPrevPage, hasNextPage: Bool?
-    let prevPage: JSONNull?
-    let nextPage: Int?
+    let prevPage, nextPage: JSONNull?
 }
 
 // MARK: - Doc
-struct PopularBlog: Codable {
+struct UserBlog: Codable {
     let id: String?
     let userID: UserID?
-    let category: Category?
     let title: String!
     let content: String?
     let blogImage: [String]?
@@ -35,8 +33,7 @@ struct PopularBlog: Codable {
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case userID = "userId"
-        case category, title, content, blogImage, status, reactionCount, deleted, reaction, createdAt, updatedAt
+        case title, content, blogImage, status, reactionCount, deleted, reaction, createdAt, updatedAt
         case v = "__v"
     }
 }
-

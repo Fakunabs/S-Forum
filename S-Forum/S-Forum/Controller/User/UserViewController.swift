@@ -16,6 +16,8 @@ class UserViewController: BaseViewController {
     private let userDropDown = DropDown()
     private let actionList = ["Logout"]
     
+    var userBlogList : [UserBlog] = []
+    
     @IBOutlet private weak var coverImageView: UIImageView!
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var avatarUserImageView: UIImageView!
@@ -27,6 +29,7 @@ class UserViewController: BaseViewController {
     @IBOutlet private weak var userGenderLabel: UILabel!
     @IBOutlet private weak var userDateOfBirthLabel: UILabel!
     @IBOutlet private weak var userPhoneLabel: UILabel!
+    @IBOutlet private weak var userBlogTableView: UITableView!
     
     @IBAction private func didTapReturnAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -52,6 +55,16 @@ class UserViewController: BaseViewController {
         self.present(editProfile, animated: false)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getUserInfomation()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        getUserInfomation()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configCornerRadius()
@@ -59,10 +72,21 @@ class UserViewController: BaseViewController {
         reloadScrollView()
         configCornerRadiusImage()
         getUserInfomation()
+        configTableView()
+        getUserBlogs()
+        print(APIURLs.userBlog)
     }
 }
 
 extension UserViewController {
+    private func configTableView() {
+        userBlogTableView.separatorStyle = .none
+        userBlogTableView.dataSource = self
+        userBlogTableView.delegate = self
+        userBlogTableView.register(UINib(nibName: NewsFeedTableViewCell.className, bundle: nil), forCellReuseIdentifier: NewsFeedTableViewCell.className)
+    }
+    
+    
     private func configCornerRadius() {
         coverImageView.layer.cornerRadius = 10
         containerView.layer.cornerRadius = 10
@@ -70,8 +94,6 @@ extension UserViewController {
         avatarUserImageView.layer.cornerRadius = avatarUserImageView.frame.size.width / 2
         avatarUserImageView.clipsToBounds = true
     }
-    
-    
     
     private func configDropDown() {
         userDropDown.cornerRadius = 10
@@ -94,7 +116,22 @@ extension UserViewController {
         userScrollView.addSubview(refreshControl)
         
     }
+}
+
+extension UserViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userBlogList.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let userBlogCell = userBlogTableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.className, for: indexPath) as? NewsFeedTableViewCell else { return UITableViewCell() }
+        userBlogCell.setUpDataUserBlogs(userBlog: userBlogList[indexPath.row])
+        return userBlogCell
+    }
+}
+
+
+extension UserViewController {
     @objc private func refreshData() {
         getUserInfomation()
         refreshControl.endRefreshing()
@@ -132,8 +169,6 @@ extension UserViewController {
         }
     }
     
-    func getBlogOwnerUserInfomation() {
-    }
     
     private func convertDateTimeFromMongoDBToSwift(_ dayOfBirth: String) -> String {
         let dateFormatter = DateFormatter()
@@ -144,6 +179,18 @@ extension UserViewController {
             return dateFormatter.string(from: date)
         } else {
             return "Invalid Date"
+        }
+    }
+}
+
+extension UserViewController {
+    private func getUserBlogs() {
+        Task {
+            let result = try await Repository.getUserBlogs()
+            userBlogList = result
+            DispatchQueue.main.async { [weak self] in
+                self?.userBlogTableView.reloadData()
+            }
         }
     }
 }

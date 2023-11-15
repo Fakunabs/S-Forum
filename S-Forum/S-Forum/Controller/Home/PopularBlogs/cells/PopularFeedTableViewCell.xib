@@ -28,7 +28,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yis-MB-XGb">
                         <rect key="frame" x="0.0" y="0.0" width="384" height="148"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp-image2" translatesAutoresizingMaskIntoConstraints="NO" id="6PW-zb-WGN">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-image-not-found-free-vector" translatesAutoresizingMaskIntoConstraints="NO" id="6PW-zb-WGN">
                                 <rect key="frame" x="5" y="16" width="116" height="116"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="116" id="J8H-kg-06o"/>
@@ -157,6 +157,6 @@
     </objects>
     <resources>
         <image name="avatar" width="30" height="30"/>
-        <image name="temp-image2" width="168" height="168"/>
+        <image name="icon-image-not-found-free-vector" width="1920" height="1920"/>
     </resources>
 </document>
