@@ -19,11 +19,11 @@ class TabController: UITabBarController {
     private func setupTabs() {
         UITabBar.appearance().backgroundColor = AppColors.outerSpace
         let homeViewController = self.createNav(with: AppImages.homeTabbarIcon, viewController: HomeViewController())
-        let scheduleViewController = self.createNav(with: AppImages.scheduleTabbarIcon, viewController: ScheduleViewController())
+//        let scheduleViewController = self.createNav(with: AppImages.scheduleTabbarIcon, viewController: ScheduleViewController())
         UITabBar.appearance().unselectedItemTintColor = .white
         homeViewController.tabBarItem.selectedImage = AppImages.homeSelected
-        scheduleViewController.tabBarItem.selectedImage = AppImages.calendarSelected
-        self.setViewControllers([homeViewController, scheduleViewController], animated: true)
+//        scheduleViewController.tabBarItem.selectedImage = AppImages.calendarSelected
+        self.setViewControllers([homeViewController /*scheduleViewController*/], animated: true)
         
         
     }

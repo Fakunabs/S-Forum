@@ -20,4 +20,5 @@ struct APIURLs {
     static let popularBlog = baseURL + "/blogs/popular"
     static let updateUser = baseURL + "/users/" + (AuthenticationManager.shared.user?.id ?? "Error")
     static let userBlog = baseURL + "/users/" + (AuthenticationManager.shared.user?.id ?? "Error") + "/blogs"
+    static let createPost = baseURL + "/blogs"
 }

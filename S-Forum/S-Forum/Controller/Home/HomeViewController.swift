@@ -20,7 +20,8 @@ class HomeViewController: BaseViewController {
     private var searchingName = [String]()
     private var searching = false
     
-    var newFeedBlogList : [NewestBlog] = []
+    var newestBlogList : [NewestBlog] = []
+    var popularBlogList : [PopularBlog] = []
     
     @IBOutlet private weak var homeSegmentControl: UISegmentedControl!
     @IBOutlet private weak var statusView: UIView!
@@ -56,9 +57,9 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func homeSearchBarHandlerAction(_ sender: UITextField) {
-        if let searchText = sender.text?.trimmingCharacters(in: .whitespacesAndNewlines), !searchText.isEmpty {
-            searchingName = newFeedBlogList.filter { blog in
-                let titleMatch = blog.title.localizedCaseInsensitiveContains(searchText)
+        if let searchTextNewestBlog = sender.text?.trimmingCharacters(in: .whitespacesAndNewlines), !searchTextNewestBlog.isEmpty {
+            searchingName = newestBlogList.filter { blog in
+                let titleMatch = blog.title.localizedCaseInsensitiveContains(searchTextNewestBlog)
                 return titleMatch
             }.map { $0.title }
             searching = true
@@ -74,6 +75,15 @@ class HomeViewController: BaseViewController {
         newsFeedTableView.reloadData()
     }
     
+    
+    
+    @IBAction func didTapCreatePostAction(_ sender: Any) {
+        let createPostViewController = CreateBlogViewController()
+        createPostViewController.modalPresentationStyle = .overFullScreen
+        createPostViewController.modalTransitionStyle = .coverVertical
+        self.present(createPostViewController, animated: false, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configViewConerRadius()
@@ -84,6 +94,7 @@ class HomeViewController: BaseViewController {
         updateUserInfo()
         configCornerRadiusImage()
         getNewestBlogs()
+        getPopularBlog()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -153,6 +164,8 @@ extension HomeViewController {
     }
     
     @objc func refreshData() {
+        getNewestBlogs()
+        getPopularBlog()
         refreshControl.endRefreshing()
     }
 }
@@ -162,9 +175,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch homeSegmentControl.selectedSegmentIndex {
         case 0:
-            return searching ? searchingName.count : newFeedBlogList.count
+            return searching ? searchingName.count : newestBlogList.count
         case 1:
-            return 5
+            return searching ? searchingName.count : popularBlogList.count
         default:
             break
         }
@@ -174,27 +187,39 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let newsfeedCell = newsFeedTableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.className, for: indexPath) as? NewsFeedTableViewCell else { return UITableViewCell() }
         guard let popularfeedCell = newsFeedTableView.dequeueReusableCell(withIdentifier: PopularFeedTableViewCell.className, for: indexPath) as? PopularFeedTableViewCell else { return UITableViewCell() }
-//        newsfeedCell.passDataDelegate = self
         switch homeSegmentControl.selectedSegmentIndex {
         case 0:
-            var blog: NewestBlog?
+            var newestBlog: NewestBlog?
             if searching {
                 if indexPath.row < searchingName.count {
-                    let searchResult = newFeedBlogList.filter { $0.title.localizedCaseInsensitiveContains(searchingName[indexPath.row]) }
-                    blog = searchResult.first
+                    let searchResult = newestBlogList.filter { $0.title.localizedCaseInsensitiveContains(searchingName[indexPath.row]) }
+                    newestBlog = searchResult.first
                 }
             } else {
-                if indexPath.row < newFeedBlogList.count {
-                    blog = newFeedBlogList[indexPath.row]
+                if indexPath.row < newestBlogList.count {
+                    newestBlog = newestBlogList[indexPath.row]
                 }
             }
             
-            if let blog = blog {
-                newsfeedCell.setUpData(newfeedBlog: blog, searchText: searching ? homeSearchBarTextField.text : nil)
+            if let newestBlog = newestBlog {
+                newsfeedCell.setUpDataNewestBlogs(newfeedBlog: newestBlog, searchText: searching ? homeSearchBarTextField.text : nil)
             }
         case 1:
-//            let blog = newFeedBlogList[indexPath.row]
-            print("a")
+            var popularBlog: PopularBlog?
+            if searching {
+                if indexPath.row < searchingName.count {
+                    let searchResult = popularBlogList.filter { $0.title.localizedCaseInsensitiveContains(searchingName[indexPath.row]) }
+                    popularBlog = searchResult.first
+                }
+            } else {
+                if indexPath.row < popularBlogList.count {
+                    popularBlog = popularBlogList[indexPath.row]
+                }
+            }
+            
+            if let popularBlog = popularBlog {
+                popularfeedCell.setUpDataPopularBlog(newfeedBlog: popularBlog, searchText: searching ? homeSearchBarTextField.text : nil)
+            }
         default:
             break
         }
@@ -204,19 +229,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
 }
-
-
-//extension HomeViewController: NewsFeedTableCellDelegate {
-//    func didTapUserDetail(user: UserID) {
-//        // Pass the userID to the UserViewController
-//        let userViewController = UserViewController()
-////        userViewController.userID = user
-//        userViewController.getBlogOwnerUserInfomation()
-//        self.navigationController?.pushViewController(userViewController, animated: true)
-//    }
-//}
-
-
 
 extension HomeViewController {
     private func updateUserInfo() {
@@ -228,7 +240,17 @@ extension HomeViewController {
     private func getNewestBlogs() {
         Task {
             let result = try await Repository.getNewestBlog()
-            newFeedBlogList = result
+            newestBlogList = result
+            DispatchQueue.main.async { [weak self] in
+                self?.newsFeedTableView.reloadData()
+            }
+        }
+    }
+    
+    private func getPopularBlog() {
+        Task {
+            let result = try await Repository.getPopularBlog()
+            popularBlogList = result
             DispatchQueue.main.async { [weak self] in
                 self?.newsFeedTableView.reloadData()
             }

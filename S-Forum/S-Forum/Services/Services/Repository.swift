@@ -140,6 +140,28 @@ class Repository {
             throw error
         }
     }
+    
+    static func createPost(title: String, content: String) async throws -> CreatePostResponse {
+        let parameters: [String: Any] = [
+            "title": title,
+            "content": content
+        ]
+        do {
+            let headers: HTTPHeaders?
+            if let token = AuthenticationManager.shared.accessToken {
+                headers = [
+                    "Authorization": "Bearer \(token)",
+                    "Content-Type": "application/json"
+                ]
+            } else {
+                headers = nil
+            }
+            let data : CreatePostResponse = try await APIService.shareInitial.requestAPIData(from: APIURLs.createPost, parameters: parameters, method: .post, headers: headers)
+            return data
+        } catch {
+            throw error
+        }
+    }
 }
 
 
