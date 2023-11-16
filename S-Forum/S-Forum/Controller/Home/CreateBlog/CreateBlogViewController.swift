@@ -45,6 +45,8 @@ class CreateBlogViewController: UIViewController {
         }
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pickerView.delegate = self

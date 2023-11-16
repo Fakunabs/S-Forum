@@ -173,6 +173,15 @@
                                     <color key="textColor" systemColor="systemRedColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaO-aH-sp1">
+                                    <rect key="frame" x="15" y="98" width="110" height="115"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="115" id="17S-D2-gvg"/>
+                                        <constraint firstAttribute="width" constant="110" id="EkF-D1-Scs"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain"/>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -182,6 +191,7 @@
                                 <constraint firstAttribute="bottom" secondItem="3w1-sx-iBR" secondAttribute="bottom" constant="16" id="7Sk-7N-vnM"/>
                                 <constraint firstItem="Caq-EM-5KG" firstAttribute="leading" secondItem="V4w-Hj-ccn" secondAttribute="trailing" constant="12" id="9Ag-6a-ttT"/>
                                 <constraint firstAttribute="trailing" secondItem="d0o-F9-DCm" secondAttribute="trailing" constant="18" id="9Dg-RO-bO1"/>
+                                <constraint firstItem="uaO-aH-sp1" firstAttribute="centerY" secondItem="V4w-Hj-ccn" secondAttribute="centerY" id="AZF-i7-w0m"/>
                                 <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="0QA-A8-uto" secondAttribute="trailing" constant="130" id="Cbg-qW-apt"/>
                                 <constraint firstItem="0QA-A8-uto" firstAttribute="leading" relation="lessThanOrEqual" secondItem="HWN-sb-Edf" secondAttribute="leading" constant="130" id="DAS-pX-ecb"/>
                                 <constraint firstItem="Caq-EM-5KG" firstAttribute="top" secondItem="wb8-gf-jTf" secondAttribute="bottom" constant="5" id="GFP-jB-ZSy"/>
@@ -199,6 +209,7 @@
                                 <constraint firstAttribute="trailing" secondItem="EqX-QH-DqN" secondAttribute="trailing" constant="15" id="aU4-bY-L0C"/>
                                 <constraint firstAttribute="trailing" secondItem="wb8-gf-jTf" secondAttribute="trailing" constant="18" id="c9U-3R-S9P"/>
                                 <constraint firstItem="0QA-A8-uto" firstAttribute="top" secondItem="HWN-sb-Edf" secondAttribute="top" constant="25" id="d3W-JT-tDT"/>
+                                <constraint firstItem="uaO-aH-sp1" firstAttribute="centerX" secondItem="V4w-Hj-ccn" secondAttribute="centerX" id="egl-gf-7dX"/>
                                 <constraint firstAttribute="trailing" secondItem="qvW-ep-m8k" secondAttribute="trailing" constant="18" id="f7j-55-feS"/>
                                 <constraint firstItem="3w1-sx-iBR" firstAttribute="top" secondItem="cH2-6L-tuV" secondAttribute="bottom" constant="18" id="hm0-mU-Xtc"/>
                                 <constraint firstItem="WoW-Yq-oyZ" firstAttribute="leading" secondItem="HWN-sb-Edf" secondAttribute="leading" constant="15" id="iNO-aB-zng"/>
