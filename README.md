@@ -34,8 +34,13 @@ This project is a simple iOS application about exercise social media.
 This project utilizes the following library to load and display images:
 
 - **SDWebImage**: A library that supports loading and caching images from URLs.
-- **Alamofire**: A library that simplify network requests and communication with HTTP services.
-- **IQKeyboardManagerSwift**: A library that enhance keyboard handling experience in your app.
+- **Alamofire**: A library that simplifies network requests and communication with HTTP services.
+- **IQKeyboardManagerSwift**: A library that enhances the keyboard handling experience in your app.
+- **SwiftLint**: A tool to enforce Swift style and conventions.
+- **DropDown**: A library for displaying dropdown menus. Version 2.3.2 is used.
+- **FirebaseCore**: The core library for Firebase services.
+- **BetterSegmentedControl**: A customizable and interactive segmented control. Version 2.0 is used.
+- **SkeletonView**: A library for creating loading skeleton views.
 
 ## Contribution
 If you'd like to contribute to the project by adding features or fixing issues, please create a pull request or submit an issue.
