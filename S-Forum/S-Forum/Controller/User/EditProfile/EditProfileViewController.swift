@@ -27,7 +27,7 @@ class EditProfileViewController: UIViewController {
     @IBOutlet private weak var errorMessageLabel: UILabel!
     
     @IBAction func didTapDismissAction(_ sender: Any) {
-//        dismissLoginView()
+
     }
     
     
@@ -50,7 +50,7 @@ class EditProfileViewController: UIViewController {
             let phone =  Int(phoneNumberTextField.text ?? "") ?? 0
             Task {
                 do {
-                    let result = try await Repository.updateInformation(firstName: firstName, lastName: lastName, gender: genderID, dayOfBirth: dayOfBirth, phone: phone)
+                    _ = try await Repository.updateInformation(firstName: firstName, lastName: lastName, gender: genderID, dayOfBirth: dayOfBirth, phone: phone)
                     var currentUser = AuthenticationManager.shared.getUser()
                     currentUser?.firstName = firstName
                     currentUser?.lastName = lastName
